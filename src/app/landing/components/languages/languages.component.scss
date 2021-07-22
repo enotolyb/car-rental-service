@@ -1,0 +1,27 @@
+@import "../../../shared/styles/colors";
+@import "../../../shared/styles/media";
+
+.language {
+  color: $mainAccent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  line-height: 15px;
+  font-weight: 700;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.5s;
+  width: 48px;
+  height: 48px;
+  border: 1px solid transparent;
+
+  &:hover {
+    color: white;
+    border: 1px solid white;
+  }
+
+  &:active {
+    color: $mainAccent;
+  }
+}

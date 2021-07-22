@@ -1,0 +1,36 @@
+<div class="block-menu">
+  <div class="block-menu__container">
+    <div class='menu-button' [class.menu-button__active]="isMenuOpen" (click)="isMenuOpen = !isMenuOpen">
+      <span class="menu-button__line"></span>
+      <span class="menu-button__line"></span>
+      <span class="menu-button__line"></span>
+    </div>
+    <div>
+      <app-languages class="language"></app-languages>
+    </div>
+  </div>
+</div>
+
+<div class="menu-container" [class.menu-container_open]="isMenuOpen">
+  <div class="menu-list">
+    <div>
+      <ul>
+        <li>
+          <a>ПАРКОВКА</a>
+        </li>
+        <li>
+          <a>СТРАХОВКА</a>
+        </li>
+        <li>
+          <a>БЕНЗИН</a>
+        </li>
+        <li>
+          <a>ОБСЛУЖИВАНИЕ</a>
+        </li>
+      </ul>
+      <app-social-media></app-social-media>
+    </div>
+    <app-languages class="language"></app-languages>
+  </div>
+  <div class="block-menu__background"></div>
+</div>

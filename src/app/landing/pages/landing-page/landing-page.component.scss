@@ -1,0 +1,24 @@
+@import "../../../shared/styles/media";
+
+.position {
+  display: grid;
+  grid-template-columns: 64px 1fr 688px;
+}
+
+@include desktop-min() {
+  .position {
+    grid-template-columns: 64px 1fr 410px;
+  }
+}
+
+@include tablet() {
+  .position {
+    grid-template-columns: 86px 1fr 0;
+  }
+}
+
+@include mobile() {
+  .position {
+    grid-template-columns: 0 1fr 0;
+  }
+}

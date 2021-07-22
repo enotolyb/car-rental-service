@@ -1,0 +1,134 @@
+@import "../../../shared/styles/colors";
+@import "../../../shared/styles/media";
+
+.button {
+  background-blend-mode: darken;
+  border: 0;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // theme
+
+  &_green {
+    background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+
+    &:hover {
+      background: linear-gradient(90deg, #0B934A 2.61%, #026E47 112.6%);
+    }
+
+    &:active {
+      background: linear-gradient(90deg, #076432 2.61%, #013C27 112.6%);
+    }
+  }
+
+  &_dark-green {
+    background: linear-gradient(90deg, #13493F 0%, #0C7B1B 100%);
+
+    &:hover {
+      background: linear-gradient(90deg, #145c51 0%, #0ca11a 100%);
+    }
+
+    &:active {
+      background: linear-gradient(90deg, #166e63 0%, #0C7B1B 100%);
+    }
+  }
+
+  &_blue {
+    background: linear-gradient(90deg, #132949 0%, #0C7B67 100%);
+
+    &:hover {
+      background: linear-gradient(90deg, #143a5b 0%, #0c8874 100%);
+    }
+
+    &:active {
+      background: linear-gradient(90deg, #14486e 0%, #0c9681 100%); //нажатие??
+    }
+  }
+
+  &_red {
+    background: linear-gradient(90deg, #493013 0%, #7B0C3B 100%);
+
+    &:hover {
+      background: linear-gradient(90deg, #5b3f16 0%, #880c3e 100%);
+    }
+
+    &:active {
+      background: linear-gradient(90deg, #6e4b19 0%, #960c3f 100%);
+    }
+  }
+
+  &_purple {
+    background: linear-gradient(90deg, #281349 0%, #720C7B 100%);
+
+    &:hover {
+      background: linear-gradient(90deg, #36165b 0%, #7f0c88 100%);
+    }
+
+    &:active {
+      background: linear-gradient(90deg, #43156e 0%, #8d0c96 100%);
+    }
+  }
+
+  // size
+
+  &_landing {
+    width: 250px;
+    height: 48px;
+  }
+
+  &_slider {
+    width: 164px;
+    height: 48px;
+  }
+
+  &_order {
+    width: 287px;
+    height: 48px;
+  }
+
+  @include mobile() {
+    width: 100%;
+    border-radius: 0;
+    height: 50px;
+  }
+}
+
+
+.blocked {
+  background: $gray;
+}
+
+// loader
+
+.button__loader {
+  display: none;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border-radius: 50%;
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  border-left: 3px solid transparent;
+  animation: rotate 1.3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
