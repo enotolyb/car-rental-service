@@ -123,6 +123,18 @@
   }
 }
 
+@include desktop-min() {
+  .menu-container {
+    grid-template-columns: 1fr 408px;
+  }
+}
+
+@include tablet() {
+  .menu-container {
+    grid-template-columns: 1fr 0;
+  }
+}
+
 @include mobile() {
   .block-menu__container {
     .menu-button {
