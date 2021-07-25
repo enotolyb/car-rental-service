@@ -1,7 +1,7 @@
 <div class="block-menu">
   <div class="block-menu__container">
     <div
-      class="menu-button"
+      class="menu-button cursor-pointer"
       [class.menu-button__active]="isMenuOpen"
       (click)="isMenuOpen = !isMenuOpen"
     >
@@ -18,7 +18,7 @@
 <div class="menu-container" [class.menu-container_open]="isMenuOpen">
   <div class="menu-list">
     <div>
-      <ul>
+      <ul class="cursor-pointer">
         <li>
           <a>ПАРКОВКА</a>
         </li>

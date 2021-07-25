@@ -1,12 +1,10 @@
 @import '../../../shared/styles/colors';
-@import '../../../shared/styles/cursors';
 
 .block-social {
   display: flex;
 
   &__item {
     margin-right: 24px;
-    cursor: $cursorPointer;
 
     &:hover svg path {
       fill: $mainAccent;

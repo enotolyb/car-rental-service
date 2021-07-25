@@ -1,0 +1,11 @@
+@import './assets/fonts/roboto/stylesheet.css';
+
+body {
+  margin: 0;
+  font-family: Roboto;
+  cursor: url('./assets/img/icons/cursor.svg'), default;
+}
+
+.cursor-pointer {
+  cursor: url('./assets/img/icons/cursor-pointer.svg'), pointer;
+}
