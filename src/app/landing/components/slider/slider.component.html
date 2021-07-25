@@ -1,12 +1,12 @@
 <div class="container">
-  <button class="button__control prev" (click)="prev()">
+  <button class="button__control prev cursor-pointer" (click)="prev()">
     <span class="button__control_background"></span>
-    <img class="button__control_img" src="/assets/img/icons/prev.svg" alt="" />
+    <img class="button__control_img" src="./assets/img/icons/prev.svg" alt="" />
   </button>
 
   <div class="list" [style.transform]="getTransform()">
     <div class="slide">
-      <img src="/assets/img/slider/slide-1.png" alt="" />
+      <img src="./assets/img/slider/slide-1.png" alt="" />
       <div class="slide__gradient"></div>
       <div class="slide-content">
         <div class="slide-content__title">Бесплатная парковка</div>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="slide">
-      <img src="/assets/img/slider/slide-2.png" alt="" />
+      <img src="./assets/img/slider/slide-2.png" alt="" />
       <div class="slide__gradient"></div>
       <div class="slide-content">
         <div class="slide-content__title">Страховка</div>
@@ -29,7 +29,7 @@
     </div>
 
     <div class="slide">
-      <img src="/assets/img/slider/slide-3.png" alt="" />
+      <img src="./assets/img/slider/slide-3.png" alt="" />
       <div class="slide__gradient"></div>
       <div class="slide-content">
         <div class="slide-content__title">Бензин</div>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="slide">
-      <img src="/assets/img/slider/slide-4.png" alt="" />
+      <img src="./assets/img/slider/slide-4.png" alt="" />
       <div class="slide__gradient"></div>
       <div class="slide-content">
         <div class="slide-content__title">Обслуживание</div>
@@ -49,15 +49,15 @@
     </div>
   </div>
 
-  <button class="button__control next" (click)="next()">
+  <button class="button__control next cursor-pointer" (click)="next()">
     <span class="button__control_background"></span>
-    <img class="button__control_img" src="/assets/img/icons/next.svg" alt="" />
+    <img class="button__control_img" src="./assets/img/icons/next.svg" alt="" />
   </button>
 
   <div class="slider-dots">
-    <div class="dot" [class.dot_active]="currentSlide === 1" (click)="openSlide(1)"></div>
-    <div class="dot" [class.dot_active]="currentSlide === 2" (click)="openSlide(2)"></div>
-    <div class="dot" [class.dot_active]="currentSlide === 3" (click)="openSlide(3)"></div>
-    <div class="dot" [class.dot_active]="currentSlide === 4" (click)="openSlide(4)"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 1" (click)="openSlide(1)"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 2" (click)="openSlide(2)"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 3" (click)="openSlide(3)"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 4" (click)="openSlide(4)"></div>
   </div>
 </div>

@@ -1,6 +1,5 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/media';
-@import '../../../shared/styles/cursors';
 
 .language {
   color: $mainAccent;
@@ -11,7 +10,6 @@
   line-height: 15px;
   font-weight: 700;
   border-radius: 100%;
-  cursor: $cursorPointer;
   transition: 0.5s;
   width: 48px;
   height: 48px;

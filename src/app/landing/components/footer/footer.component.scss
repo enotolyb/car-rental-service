@@ -1,6 +1,5 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/media';
-@import '../../../shared/styles/cursors';
 
 .footer {
   display: flex;
@@ -21,7 +20,6 @@
     font-size: 13px;
     line-height: 15px;
     font-weight: 400;
-    cursor: $cursorPointer;
 
     &:hover {
       color: $mainAccent;

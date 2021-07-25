@@ -1,6 +1,5 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/media';
-@import '../../../shared/styles/cursors';
 
 .button {
   background-blend-mode: darken;
@@ -10,7 +9,6 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 21px;
-  cursor: $cursorPointer;
   display: flex;
   justify-content: center;
   align-items: center;

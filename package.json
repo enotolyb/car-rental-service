@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build  -- --base-href=/car-rental-service/",
     "test": "ng test",
     "lint": "eslint src/",
     "e2e": "ng e2e",

@@ -1,6 +1,5 @@
 @import '../../../shared/styles/colors';
 @import '../../../shared/styles/media';
-@import '../../../shared/styles/cursors';
 
 .block-menu {
   display: flex;
@@ -40,7 +39,6 @@
 
     ul {
       list-style-type: none;
-      cursor: $cursorPointer;
       padding: 0;
     }
 
@@ -72,7 +70,6 @@
   z-index: 4;
   box-sizing: border-box;
   transition: all 0.5s;
-  cursor: $cursorPointer;
   overflow: hidden;
 
   &__line {
