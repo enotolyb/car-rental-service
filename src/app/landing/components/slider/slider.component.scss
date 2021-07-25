@@ -1,5 +1,6 @@
-@import "../../../shared/styles/colors";
-@import "../../../shared/styles/media";
+@import '../../../shared/styles/colors';
+@import '../../../shared/styles/media';
+@import '../../../shared/styles/cursors';
 
 .container {
   display: flex;
@@ -21,7 +22,7 @@
   border: 0;
   padding: 0;
   background: none;
-  cursor: pointer;
+  cursor: $cursorPointer;
 
   &.next {
     right: 0;
@@ -30,13 +31,13 @@
   &.prev {
   }
 
-  .button__control_img {
+  &_img {
     width: 10px;
     height: 20px;
     opacity: 1;
   }
 
-  .button__background {
+  &_background {
     display: block;
     opacity: 0;
     position: absolute;
@@ -45,7 +46,7 @@
     height: 100%;
   }
 
-  &:hover .button__background {
+  &:hover &_background {
     background: $mainAccent;
     opacity: 0.2;
   }
@@ -58,6 +59,7 @@
   min-width: 688px;
   display: flex;
   justify-content: center;
+  align-items: center;
 
   img {
     position: absolute;
@@ -67,33 +69,34 @@
     height: 100%;
   }
 
-  .slide__gradient {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  &__gradient {
+    background: $darkenedBackground;
     width: 100%;
     height: 100%;
     position: absolute;
   }
+}
 
-  .slide-content {
-    top: 210px;
-    position: relative;
-    z-index: 2;
-    max-width: 490px;
+.slide-content {
+  margin-top: 209px;
+  margin-bottom: auto;
+  position: relative;
+  z-index: 2;
+  max-width: 490px;
 
-    .slide-content__title {
-      font-weight: 500;
-      font-size: 40px;
-      line-height: 47px;
-      color: white;
-    }
+  &__title {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 47px;
+    color: $white;
+  }
 
-    .slide-content__text {
-      font-weight: 300;
-      font-size: 24px;
-      line-height: 90%;
-      color: white;
-      margin: 8px 0 32px 0;
-    }
+  &__text {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 90%;
+    color: $white;
+    margin: 8px 0 32px 0;
   }
 }
 
@@ -104,15 +107,15 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: $white;
 
   .dot {
-    background-color: white;
+    background-color: $white;
     width: 8px;
     height: 8px;
     border-radius: 100%;
     margin: 32px 4px;
-    cursor: pointer;
+    cursor: $cursorPointer;
     transition: 0.3s;
 
     &:hover {
@@ -134,21 +137,21 @@
     width: 410px;
     min-width: 410px;
     align-items: center;
+  }
 
-    .slide-content {
-      max-width: 459px;
-      margin: 0 64px;
-      top: 0;
+  .slide-content {
+    max-width: 459px;
+    margin: 0 64px;
+    top: 0;
 
-      .slide-content__title {
-        font-size: 32px;
-        line-height: 37px;
-      }
+    &__title {
+      font-size: 32px;
+      line-height: 37px;
+    }
 
-      .slide-content__text {
-        font-size: 22px;
-        line-height: 100%;
-      }
+    &__text {
+      font-size: 22px;
+      line-height: 100%;
     }
   }
 

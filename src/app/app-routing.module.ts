@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   declarations: [],
   imports: [
@@ -10,13 +9,10 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       {
         path: '',
-        loadChildren: () => import('./landing/landing.module').then(m => m.LandingModule)
-      }
-    ])
+        loadChildren: () => import('./landing/landing.module').then((m) => m.LandingModule),
+      },
+    ]),
   ],
-  exports: [
-    RouterModule,
-  ]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

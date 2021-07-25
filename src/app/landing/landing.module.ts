@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './components/menu/menu.component';
+// eslint-disable-next-line
 import { ApplicationBlockComponent } from './components/application-block/application-block.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
@@ -10,7 +11,6 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
 import { LanguagesComponent } from './components/languages/languages.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-
 @NgModule({
   declarations: [
     MenuComponent,
@@ -19,13 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     LandingPageComponent,
     SocialMediaComponent,
     LanguagesComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  imports: [
-    CommonModule,
-    LandingRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, LandingRoutingModule, SharedModule],
 })
-export class LandingModule {
-}
+export class LandingModule {}
