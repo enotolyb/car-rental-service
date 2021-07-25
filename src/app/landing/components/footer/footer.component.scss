@@ -1,5 +1,6 @@
-@import "../../../shared/styles/colors";
-@import "../../../shared/styles/media";
+@import '../../../shared/styles/colors';
+@import '../../../shared/styles/media';
+@import '../../../shared/styles/cursors';
 
 .footer {
   display: flex;
@@ -8,19 +9,19 @@
   margin-bottom: 32px;
   width: 100%;
 
-  .footer__copyright {
+  &__copyright {
     color: $gray;
     font-size: 13px;
     line-height: 15px;
     font-weight: 400;
   }
 
-  .footer__contact {
+  &__contact {
     color: $black;
     font-size: 13px;
     line-height: 15px;
     font-weight: 400;
-    cursor: pointer;
+    cursor: $cursorPointer;
 
     &:hover {
       color: $mainAccent;
@@ -36,22 +37,22 @@
     background-color: $black;
     margin: 0;
 
-    .footer__copyright {
+    &__copyright {
       order: 2;
       margin: 0 16px 16px 0;
     }
 
-    .footer__contact {
+    &__contact {
       color: $mainAccent;
       order: 1;
       margin: 16px 16px 8px 0;
 
       &:hover {
-        color: white;
+        color: $white;
       }
 
       &:active {
-        color: white;
+        color: $white;
       }
     }
   }

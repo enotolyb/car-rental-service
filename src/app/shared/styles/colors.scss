@@ -1,6 +1,31 @@
-$mainAccent: #0EC261;
-$blue: #007BFF;
+$mainAccent: #0ec261;
+$blue: #007bff;
 $black: #121212;
 $gray: #999999;
-$grayLight: #EEEEEE;
-$backGroundAdmin: #F5F6F8;
+$grayLight: #eeeeee;
+$backgroundAdmin: #f5f6f8;
+$white: #ffffff;
+
+// gradients
+
+$darkenedBackground: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+
+$greenGradient: linear-gradient(90deg, #0ec261 2.61%, #039f67 112.6%);
+$greenHoverGradient: linear-gradient(90deg, #0b934a 2.61%, #026e47 112.6%);
+$greenActiveGradient: linear-gradient(90deg, #076432 2.61%, #013c27 112.6%);
+
+$darkGreenGradient: linear-gradient(90deg, #13493f 0%, #0c7b1b 100%);
+$darkGreenHoverGradient: linear-gradient(90deg, #145c51 0%, #0ca11a 100%);
+$darkGreenActiveGradient: linear-gradient(90deg, #166e63 0%, #0c7b1b 100%);
+
+$blueGradient: linear-gradient(90deg, #132949 0%, #0c7b67 100%);
+$blueHoverGradient: linear-gradient(90deg, #143a5b 0%, #0c8874 100%);
+$blueActiveGradient: linear-gradient(90deg, #14486e 0%, #0c9681 100%);
+
+$redGradient: linear-gradient(90deg, #493013 0%, #7b0c3b 100%);
+$redHoverGradient: linear-gradient(90deg, #5b3f16 0%, #880c3e 100%);
+$redActiveGradient: linear-gradient(90deg, #6e4b19 0%, #960c3f 100%);
+
+$purpleGradient: linear-gradient(90deg, #281349 0%, #720c7b 100%);
+$purpleHoverGradient: linear-gradient(90deg, #36165b 0%, #7f0c88 100%);
+$purpleActiveGradient: linear-gradient(90deg, #43156e 0%, #8d0c96 100%);

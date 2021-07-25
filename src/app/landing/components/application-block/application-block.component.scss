@@ -1,5 +1,5 @@
-@import "../../../shared/styles/colors";
-@import "../../../shared/styles/media";
+@import '../../../shared/styles/colors';
+@import '../../../shared/styles/media';
 
 .container {
   display: flex;
@@ -16,24 +16,24 @@
   margin-top: 32px;
   width: 100%;
 
-  .header__logo {
+  &__logo {
     color: $mainAccent;
     font-size: 30px;
     line-height: 35px;
     font-weight: 700;
-  }
 
-  .header__logo_city {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    &_city {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
-    .header__logo_city_name {
-      color: $gray;
-      margin-left: 6px;
-      font-size: 14px;
-      line-height: 16px;
-      font-weight: 400;
+      &_name {
+        color: $gray;
+        margin-left: 6px;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+      }
     }
   }
 }
@@ -42,7 +42,7 @@
   display: flex;
   flex-direction: column;
 
-  .application__text_bold {
+  &__text_bold {
     color: $black;
     font-size: 70px;
     line-height: 65px;
@@ -50,14 +50,14 @@
     margin-bottom: 4px;
   }
 
-  .application__text_logo {
+  &__text_logo {
     color: $mainAccent;
     font-size: 70px;
     line-height: 65px;
     font-weight: 700;
   }
 
-  .application__text_light {
+  &__text_light {
     color: $gray;
     font-size: 26px;
     line-height: 31px;
@@ -74,34 +74,38 @@
       align-items: flex-end;
       margin-top: 16px;
 
-      .header__logo {
+      &__logo {
         margin-right: 16px;
-      }
 
-      .header__logo_city {
-        margin-right: 16px;
+        &_city {
+          margin-right: 16px;
+        }
       }
     }
   }
 
-  .application__block-text {
-    margin-left: 16px;
+  .application {
+    margin-top: 33px;
+    margin-bottom: auto;
 
-    .application__text_bold {
+    &__block-text {
+      margin-left: 16px;
+    }
+
+    &__text_bold {
       font-size: 32px;
       line-height: 32px;
     }
 
-    .application__text_logo {
+    &__text_logo {
       font-size: 32px;
       line-height: 32px;
     }
 
-    .application__text_light {
+    &__text_light {
       font-size: 18px;
       line-height: 21px;
       margin: 16px 0 32px 0;
     }
   }
 }
-

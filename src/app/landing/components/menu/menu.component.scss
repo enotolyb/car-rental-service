@@ -1,5 +1,6 @@
-@import "../../../shared/styles/colors";
-@import "../../../shared/styles/media";
+@import '../../../shared/styles/colors';
+@import '../../../shared/styles/media';
+@import '../../../shared/styles/cursors';
 
 .block-menu {
   display: flex;
@@ -7,7 +8,7 @@
   height: 100vh;
   background-color: $black;
 
-  .block-menu__container {
+  &__container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,7 +40,7 @@
 
     ul {
       list-style-type: none;
-      cursor: pointer;
+      cursor: $cursorPointer;
       padding: 0;
     }
 
@@ -47,7 +48,7 @@
       font-weight: 500;
       font-size: 32px;
       line-height: 50px;
-      color: white;
+      color: $white;
 
       &:hover {
         color: $mainAccent;
@@ -64,16 +65,14 @@
   display: grid;
 }
 
-
-
 .menu-button {
   width: 24px;
   height: 24px;
   position: relative;
   z-index: 4;
   box-sizing: border-box;
-  transition: all .5s;
-  cursor: pointer;
+  transition: all 0.5s;
+  cursor: $cursorPointer;
   overflow: hidden;
 
   &__line {
@@ -82,15 +81,15 @@
     left: 0;
     right: 0;
     top: 2px;
-    content: "";
+    content: '';
     display: block;
     height: 3px;
-    background: #ffffff;
-    transition: all .5s;
+    background: $white;
+    transition: all 0.5s;
 
     &:nth-of-type(2) {
       top: calc(50% - 2px);
-      transition: transform .5s, width 2s;
+      transition: transform 0.5s, width 2s;
     }
 
     &:nth-of-type(3) {
@@ -102,11 +101,11 @@
 
   &__active {
     .menu-button__line {
-      content: "";
+      content: '';
       display: block;
       width: 100%;
       transform: rotate(45deg);
-      background: #ffffff;
+      background: $white;
       top: 100%;
       margin-top: -55%;
       left: 0;
@@ -142,13 +141,13 @@
       top: 24px;
       left: 24px;
 
-      .menu-button__line {
+      &__line {
         background: $black;
       }
 
       &__active {
         .menu-button__line {
-          background: white;
+          background: $white;
         }
       }
     }
@@ -178,7 +177,6 @@
       left: 18px;
     }
   }
-
 
   .block-menu__background {
     display: none;

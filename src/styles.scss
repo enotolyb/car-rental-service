@@ -1,0 +1,8 @@
+@import './assets/fonts/roboto/stylesheet.css';
+@import './app/shared/styles/cursors';
+
+body {
+  margin: 0;
+  font-family: Roboto;
+  cursor: $cursorDefault;
+}
