@@ -1,0 +1,13 @@
+@import '../../../shared/styles/colors';
+
+.block-social {
+  display: flex;
+
+  &__item {
+    margin-right: 24px;
+
+    &:hover svg path {
+      fill: $mainAccent;
+    }
+  }
+}
