@@ -1,0 +1,67 @@
+@import '../../../../shared/styles/colors';
+@import '../../../../shared/styles/media';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.place {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 10px;
+  }
+
+  &__field {
+    position: relative;
+  }
+
+  &__field-clear {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid $grayLight;
+    width: 224px;
+    height: 16px;
+    font-size: 14px;
+    outline: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+:focus::-moz-placeholder {
+  color: transparent;
+}
+
+:focus:-moz-placeholder {
+  color: transparent;
+}
+
+:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+@include mobile() {
+  .place {
+    &__choose {
+      width: 160px;
+    }
+  }
+}

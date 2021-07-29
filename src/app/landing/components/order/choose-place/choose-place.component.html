@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="place">
+    <div class="place__title">Город</div>
+    <div class="place__field">
+      <input class="place__input" placeholder="Начните вводить город" [(ngModel)]="searchCity">
+      <img *ngIf="searchCity" class="place__field-clear cursor-pointer" src="./assets/img/icons/cross.svg" (click)="clearInputCity()">
+    </div>
+  </div>
+  <div class="place">
+    <div class="place__title">Пункт выдачи</div>
+    <div class="place__field">
+      <input class="place__input" placeholder="Начните вводить пункт выдачи" [(ngModel)]="pickPoint">
+      <img *ngIf="pickPoint" class="place__field-clear cursor-pointer" src="./assets/img/icons/cross.svg" (click)="clearInputPickPoint()">
+    </div>
+  </div>
+</div>

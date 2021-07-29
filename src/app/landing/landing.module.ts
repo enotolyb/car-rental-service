@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './components/menu/menu.component';
+import { MenuComponent } from './components/general/menu/menu.component';
 // eslint-disable-next-line
-import { ApplicationBlockComponent } from './components/application-block/application-block.component';
-import { SliderComponent } from './components/slider/slider.component';
+import { ApplicationBlockComponent } from './components/main/application-block/application-block.component';
+import { SliderComponent } from './components/main/slider/slider.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { LandingRoutingModule } from './landing-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { SocialMediaComponent } from './components/social-media/social-media.component';
-import { LanguagesComponent } from './components/languages/languages.component';
-import { FooterComponent } from './components/footer/footer.component';
-
+import { SocialMediaComponent } from './components/general/social-media/social-media.component';
+import { LanguagesComponent } from './components/general/languages/languages.component';
+import { FooterComponent } from './components/main/footer/footer.component';
+import { OrderPageComponent } from './pages/order-page/order-page.component';
+import { LocationStepComponent } from './order-steps/location-step/location-step.component';
+import { HeaderComponent } from './components/general/header/header.component';
+import { BreadcrumbComponent } from './components/order/breadcrumb/breadcrumb.component';
+import { ChoosePlaceComponent } from './components/order/choose-place/choose-place.component';
+import { DetailsOrderComponent } from './components/order/details-order/details-order.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -20,7 +26,13 @@ import { FooterComponent } from './components/footer/footer.component';
     SocialMediaComponent,
     LanguagesComponent,
     FooterComponent,
+    OrderPageComponent,
+    LocationStepComponent,
+    HeaderComponent,
+    BreadcrumbComponent,
+    ChoosePlaceComponent,
+    DetailsOrderComponent,
   ],
-  imports: [CommonModule, LandingRoutingModule, SharedModule],
+  imports: [CommonModule, LandingRoutingModule, SharedModule, FormsModule],
 })
 export class LandingModule {}

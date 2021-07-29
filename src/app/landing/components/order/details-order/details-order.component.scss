@@ -1,0 +1,82 @@
+@import '../../../../shared/styles/colors';
+@import '../../../../shared/styles/media';
+
+.container {
+  padding: 32px 0 0 32px;
+}
+
+.title {
+  text-align: right;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.detail {
+  margin-top: 26px;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    &_name {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16px;
+      margin-right: 10px;
+    }
+
+    &_points {
+      flex: 1;
+      border-bottom: 2px dotted $gray;
+      background-repeat: repeat;
+    }
+
+    &_choose {
+      font-weight: 300;
+      text-align: right;
+      font-size: 14px;
+      line-height: 16px;
+      margin-left: 10px;
+      color: $gray;
+    }
+  }
+}
+
+.price {
+  display: flex;
+  margin: 32px 0;
+
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+
+  &__sum {
+    font-size: 16px;
+  }
+}
+
+@include tablet() {
+  .container {
+    padding: 0;
+    margin: 32px;
+  }
+
+  .title {
+    text-align: center;
+  }
+}
+
+@include mobile() {
+  .container {
+    padding: 0;
+    margin: 32px;
+  }
+
+  .title {
+    text-align: center;
+  }
+}

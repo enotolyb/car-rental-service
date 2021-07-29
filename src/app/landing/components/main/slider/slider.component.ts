@@ -7,13 +7,14 @@ import { Component } from '@angular/core';
 })
 export class SliderComponent {
   currentSlide = 1;
+
   private countSlides = 4;
 
   prev() {
     if (this.currentSlide === 1) {
       this.currentSlide = this.countSlides;
     } else {
-      this.currentSlide = this.currentSlide - 1;
+      this.currentSlide -= this.currentSlide;
     }
   }
 
@@ -21,12 +22,12 @@ export class SliderComponent {
     if (this.currentSlide === this.countSlides) {
       this.currentSlide = 1;
     } else {
-      this.currentSlide = this.currentSlide + 1;
+      this.currentSlide += this.currentSlide;
     }
   }
 
   getTransform(): string {
-    return `translateX(-${100 / this.countSlides * (this.currentSlide - 1)}%)`;
+    return `translateX(-${(100 / this.countSlides) * (this.currentSlide - 1)}%)`;
   }
 
   openSlide(num: number) {

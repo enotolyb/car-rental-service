@@ -3,6 +3,8 @@
 body {
   margin: 0;
   font-family: Roboto;
+  height: 100%;
+  overflow: hidden;
   cursor: url('./assets/img/icons/cursor.svg'), default;
 }
 

@@ -1,0 +1,72 @@
+@import '../../../../shared/styles/colors';
+@import '../../../../shared/styles/media';
+
+.container {
+  padding: 8px 0;
+  border: 1px solid $grayLight;
+}
+
+.breadcrumbs {
+  display: flex;
+  max-width: 1250px;
+  padding: 0;
+  margin: 0 auto;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+
+    &_link {
+      font-size: 14px;
+      font-weight: 700;
+      color: $gray;
+    }
+
+    &_img {
+      margin: 0 16px;
+    }
+  }
+
+  .active {
+    color: $mainAccent;
+  }
+}
+
+
+
+@include desktop-min() {
+  .breadcrumbs {
+    margin: 0 64px;
+  }
+}
+
+@include tablet() {
+  .breadcrumbs {
+    margin: 0 64px;
+  }
+}
+
+@include mobile() {
+  .breadcrumbs {
+    max-width: 100%;
+    justify-content: center;
+    margin: 0 5px;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      list-style-type: none;
+
+      &_link {
+        font-weight: 500;
+        font-size: 12px;
+      }
+
+      &_img {
+        margin: 0 5px;
+        width: 4px;
+      }
+    }
+  }
+}
