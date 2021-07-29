@@ -1,10 +1,10 @@
 <div class="container">
-  <button class="button__control prev cursor-pointer">
+  <button class="button__control prev cursor-pointer" (click)="prev()">
     <span class="button__control_background"></span>
     <img class="button__control_img" src="./assets/img/icons/prev.svg" alt="" />
   </button>
 
-  <div class="list">
+  <div class="list" [style.transform]="getTransform()">
     <div class="slide">
       <img src="./assets/img/slider/slide-1.png" alt="" />
       <div class="slide__gradient"></div>
@@ -49,15 +49,15 @@
     </div>
   </div>
 
-  <button class="button__control next cursor-pointer">
+  <button class="button__control next cursor-pointer" (click)="next()">
     <span class="button__control_background"></span>
     <img class="button__control_img" src="./assets/img/icons/next.svg" alt="" />
   </button>
 
   <div class="slider-dots">
-    <div class="dot cursor-pointer"></div>
-    <div class="dot cursor-pointer"></div>
-    <div class="dot cursor-pointer"></div>
-    <div class="dot cursor-pointer"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 1" (click)="openSlide(1)"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 2" (click)="openSlide(2)"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 3" (click)="openSlide(3)"></div>
+    <div class="dot cursor-pointer" [class.dot_active]="currentSlide === 4" (click)="openSlide(4)"></div>
   </div>
 </div>
