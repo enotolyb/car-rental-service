@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-choose-place',
@@ -6,15 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./choose-place.component.scss'],
 })
 export class ChoosePlaceComponent {
-  searchCity = 'Ульяновск';
+  form = this.formBuilder.group({
+    city: ['Ульяновск', Validators.required],
+    pickPoint: ['', Validators.required],
+  });
 
-  pickPoint = '';
-
-  clearInputCity() {
-    this.searchCity = null;
-  }
-
-  clearInputPickPoint() {
-    this.pickPoint = null;
-  }
+  constructor(private formBuilder: FormBuilder) {}
 }

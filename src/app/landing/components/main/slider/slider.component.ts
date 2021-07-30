@@ -14,7 +14,7 @@ export class SliderComponent {
     if (this.currentSlide === 1) {
       this.currentSlide = this.countSlides;
     } else {
-      this.currentSlide -= this.currentSlide;
+      this.currentSlide -= 1;
     }
   }
 
@@ -22,7 +22,7 @@ export class SliderComponent {
     if (this.currentSlide === this.countSlides) {
       this.currentSlide = 1;
     } else {
-      this.currentSlide += this.currentSlide;
+      this.currentSlide += 1;
     }
   }
 

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './components/general/menu/menu.component';
 // eslint-disable-next-line
@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/general/header/header.component';
 import { BreadcrumbComponent } from './components/order/breadcrumb/breadcrumb.component';
 import { ChoosePlaceComponent } from './components/order/choose-place/choose-place.component';
 import { DetailsOrderComponent } from './components/order/details-order/details-order.component';
+import { InputComponent } from './components/general/input/input.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -32,7 +33,8 @@ import { DetailsOrderComponent } from './components/order/details-order/details-
     BreadcrumbComponent,
     ChoosePlaceComponent,
     DetailsOrderComponent,
+    InputComponent,
   ],
-  imports: [CommonModule, LandingRoutingModule, SharedModule, FormsModule],
+  imports: [CommonModule, LandingRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
 })
 export class LandingModule {}
