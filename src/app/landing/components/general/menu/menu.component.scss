@@ -1,5 +1,5 @@
-@import '../../../shared/styles/colors';
-@import '../../../shared/styles/media';
+@import '../../../../shared/styles/colors';
+@import '../../../../shared/styles/media';
 
 .block-menu {
   display: flex;
@@ -126,6 +126,10 @@
 }
 
 @include tablet() {
+  .block-menu {
+    height: 100%;
+  }
+
   .menu-container {
     grid-template-columns: 1fr 0;
   }

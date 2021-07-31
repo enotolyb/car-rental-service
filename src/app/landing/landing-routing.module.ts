@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { OrderPageComponent } from './pages/order-page/order-page.component';
 
 @NgModule({
   declarations: [],
@@ -9,6 +10,10 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
       {
         path: '',
         component: LandingPageComponent,
+      },
+      {
+        path: 'order',
+        component: OrderPageComponent,
       },
     ]),
   ],
