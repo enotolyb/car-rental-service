@@ -1,0 +1,42 @@
+@import '../../../shared/styles/media';
+
+.position {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+
+  &__header {
+    max-width: 1250px;
+    margin: 32px auto;
+  }
+}
+
+@include desktop-min() {
+  .position {
+    grid-template-columns: 64px 1fr;
+
+    &__header {
+      margin: 32px 64px;
+    }
+  }
+}
+
+@include tablet() {
+  .position {
+    grid-template-columns: 86px 1fr;
+
+    &__header {
+      margin: 32px 64px;
+    }
+  }
+}
+
+@include mobile() {
+  .position {
+    grid-template-columns: 0 1fr;
+
+    &__header {
+     margin: 0;
+      padding-bottom: 16px;
+    }
+  }
+}

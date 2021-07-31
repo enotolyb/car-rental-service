@@ -1,0 +1,21 @@
+@import '../../../../shared/styles/colors';
+@import '../../../../shared/styles/media';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+}
+
+.place {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 300;
+    margin-right: 10px;
+  }
+}

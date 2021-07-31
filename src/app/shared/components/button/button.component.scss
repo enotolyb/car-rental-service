@@ -75,6 +75,11 @@
     }
   }
 
+  &_blocked {
+    background: $grayLight;
+    pointer-events: none;
+  }
+
   // size
 
   &_landing {
@@ -97,10 +102,6 @@
     border-radius: 0;
     height: 50px;
   }
-}
-
-.blocked {
-  background: $gray;
 }
 
 // loader

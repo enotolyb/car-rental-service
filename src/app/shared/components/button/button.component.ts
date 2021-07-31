@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() theme: 'green' | 'blue' | 'red' | 'purple' | 'dark-green' = 'green';
+  @Input() theme: 'green' | 'blue' | 'red' | 'purple' | 'dark-green' | 'blocked' = 'green';
 
   @Input() size: 'landing' | 'slider' | 'order' = 'order';
 }
