@@ -1,12 +1,46 @@
 @import '../../../shared/styles/media';
+@import '../../../shared/styles/colors';
 
 .position {
   display: grid;
+  height: 100%;
   grid-template-columns: 64px 1fr;
 
-  &__header {
-    max-width: 1250px;
-    margin: 32px auto;
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+
+    .header {
+      max-width: 1250px;
+      width: 100%;
+      margin: 0 auto 32px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+
+      &__step {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1250px;
+        width: 100%;
+
+        &_left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        &_right {
+          display: flex;
+          align-content: flex-start;
+          border-left: 1px solid $grayLight;
+        }
+      }
+    }
   }
 }
 
@@ -14,8 +48,28 @@
   .position {
     grid-template-columns: 64px 1fr;
 
-    &__header {
-      margin: 32px 64px;
+    .main {
+      .header {
+        width: auto;
+        margin: 32px 64px;
+      }
+
+      .content {
+        min-height: 100%;
+        height: 100%;
+
+        &__step {
+          margin: 0 64px;
+
+          &_left {
+
+            .img {
+              max-width: 500px;
+              max-height: 240px;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -24,8 +78,31 @@
   .position {
     grid-template-columns: 86px 1fr;
 
-    &__header {
-      margin: 32px 64px;
+    .main {
+
+      .header {
+        width: auto;
+        margin: 0 64px 32px;
+      }
+
+      .content {
+        &__step {
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+
+          &_left {
+
+            .img {
+              max-width: 500px;
+            }
+          }
+
+          &_right {
+            border-left: none;
+          }
+        }
+      }
     }
   }
 }
@@ -34,9 +111,34 @@
   .position {
     grid-template-columns: 0 1fr;
 
-    &__header {
-     margin: 0;
-      padding-bottom: 16px;
+    .main {
+      .header {
+        margin: 0;
+        padding-bottom: 16px;
+      }
+
+      .content {
+        &__step {
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          margin: 0 10px;
+
+          &_left {
+
+            .img {
+              max-width: 500px;
+              min-width: 300px;
+              width: 100%;
+            }
+          }
+
+          &_right {
+            border-left: none;
+          }
+        }
+      }
     }
   }
 }
+

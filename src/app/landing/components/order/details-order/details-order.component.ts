@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './details-order.component.html',
   styleUrls: ['./details-order.component.scss'],
 })
-export class DetailsOrderComponent {}
+export class DetailsOrderComponent {
+  text = 'Дополнительно';
+
+  theme = '';
+}

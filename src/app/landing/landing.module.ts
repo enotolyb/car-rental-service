@@ -18,6 +18,10 @@ import { BreadcrumbComponent } from './components/order/breadcrumb/breadcrumb.co
 import { ChoosePlaceComponent } from './components/order/choose-place/choose-place.component';
 import { DetailsOrderComponent } from './components/order/details-order/details-order.component';
 import { InputComponent } from './components/general/input/input.component';
+// eslint-disable-next-line
+import { ChooseModelStepComponent } from './order-steps/choose-model-step/choose-model-step.component';
+import { RadioButtonComponent } from './components/general/radio-button/radio-button.component';
+import { CarCardComponent } from './components/order/car-card/car-card.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -34,6 +38,9 @@ import { InputComponent } from './components/general/input/input.component';
     ChoosePlaceComponent,
     DetailsOrderComponent,
     InputComponent,
+    ChooseModelStepComponent,
+    RadioButtonComponent,
+    CarCardComponent,
   ],
   imports: [CommonModule, LandingRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
 })
