@@ -1,0 +1,35 @@
+@import '../../../shared/styles/media';
+
+.filter {
+  display: flex;
+  margin-top: 32px;
+}
+
+.block-cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+
+
+@include tablet() {
+  .filter {
+    justify-content: center;
+  }
+
+  .block-cards {
+    justify-content: center;
+    margin: 40px 0 0 0;
+  }
+}
+
+@include mobile() {
+  .filter {
+    justify-content: center;
+  }
+
+  .block-cards {
+    justify-content: center;
+    margin: 32px 0 0 0;
+  }
+}
