@@ -13,12 +13,13 @@
 }
 
 .detail {
-  margin-top: 26px;
+  margin-top: 10px;
 
   &__item {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-top: 16px;
 
     &_name {
       font-weight: 300;
@@ -62,7 +63,7 @@
 @include tablet() {
   .container {
     padding: 0;
-    margin: 32px;
+    margin: 32px 0 60px;
   }
 
   .title {
@@ -73,7 +74,7 @@
 @include mobile() {
   .container {
     padding: 0;
-    margin: 32px;
+    margin: 32px 0 60px;
   }
 
   .title {
