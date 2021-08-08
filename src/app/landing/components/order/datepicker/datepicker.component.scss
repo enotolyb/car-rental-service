@@ -7,14 +7,16 @@
   .input {
     border: none;
     border-bottom: 1px solid $grayLight;
-    font-family: Roboto;
     width: 224px;
     height: 16px;
     font-size: 14px;
+    font-weight: 300;
+    font-family: Roboto;
     outline: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-left: 8px;
   }
 
   .field-clear {
@@ -52,3 +54,4 @@
 :focus:-ms-input-placeholder {
   color: transparent;
 }
+

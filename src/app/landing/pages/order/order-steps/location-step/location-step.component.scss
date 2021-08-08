@@ -1,41 +1,44 @@
-@import '../../../shared/styles/media';
-@import '../../../shared/styles/colors';
+@import '../../../../styles/media';
+@import '../../../../styles/colors';
 
 .position {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-  &__step {
+  .block-place {
     display: flex;
-    justify-content: space-between;
-    max-width: 1250px;
-    height: 100%;
-    margin: 0 auto;
+    flex-direction: column;
+    margin-top: 32px;
+  }
 
-    &_left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+  .place__item {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    margin-bottom: 16px;
 
-      .text {
-        font-size: 14px;
-        font-weight: 300;
-        margin: 29px 0 16px 0;
-      }
-
-      .img {
-        max-width: 736px;
-        width: 100%;
-        max-height: 352px;
-        height: 100%;
-      }
-    }
-
-    &_right {
-      display: flex;
-      align-content: flex-start;
-      border-left: 1px solid $grayLight;
+    &_title {
+      font-size: 14px;
+      font-weight: 300;
+      margin-right: 10px;
     }
   }
+
+  .text {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 29px 0 16px 0;
+  }
+
+  .img {
+    max-width: 736px;
+    width: 100%;
+    max-height: 352px;
+    height: 100%;
+  }
 }
+
 
 @include desktop() {
   .position {
@@ -67,7 +70,8 @@
   .position {
     &__step {
       flex-direction: column;
-      align-items: center;justify-content: flex-start;
+      align-items: center;
+      justify-content: flex-start;
 
       &_left {
 

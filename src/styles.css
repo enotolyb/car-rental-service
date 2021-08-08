@@ -11,3 +11,6 @@ body {
   cursor: url('./assets/img/icons/cursor-pointer.svg'), pointer;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

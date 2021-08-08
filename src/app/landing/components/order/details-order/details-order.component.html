@@ -1,12 +1,11 @@
 <div class="container">
   <div class="title">Ваш заказ:</div>
   <div class="detail">
-    <div class="detail__item">
-      <div class="detail__item_name">Пункт выдачи</div>
+    <div class="detail__item" *ngFor="let detail of details">
+      <div class="detail__item_name">{{detail.name}}</div>
       <div class="detail__item_points"></div>
       <div class="detail__item_choose">
-        <div>Ульяновск,</div>
-        <div>Нариманова 42</div>
+        <div>{{detail.value}}</div>
       </div>
     </div>
     <div class="detail__item">
@@ -18,7 +17,7 @@
     </div>
     <div class="price">
       <div class="price__title">Цена:</div>
-      <div class="price__sum">от 8 000 до 12 000 ₽</div>
+      <div class="price__sum">16 000 ₽</div>
     </div>
     <app-button theme="green">{{ text }}</app-button>
   </div>
