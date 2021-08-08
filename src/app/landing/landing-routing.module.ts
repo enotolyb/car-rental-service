@@ -8,6 +8,8 @@ import { LocationStepComponent } from './pages/order/order-steps/location-step/l
 import { ChooseModelStepComponent } from './pages/order/order-steps/choose-model-step/choose-model-step.component';
 // eslint-disable-next-line
 import { AdditionalOptionStepComponent } from './pages/order/order-steps/additional-option-step/additional-option-step.component';
+// eslint-disable-next-line
+import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-order-step/summary-order-step.component';
 
 @NgModule({
   declarations: [],
@@ -32,6 +34,10 @@ import { AdditionalOptionStepComponent } from './pages/order/order-steps/additio
           {
             path: 'option',
             component: AdditionalOptionStepComponent,
+          },
+          {
+            path: 'summary-order',
+            component: SummaryOrderStepComponent,
           },
         ],
       },
