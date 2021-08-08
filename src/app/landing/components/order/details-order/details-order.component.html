@@ -1,17 +1,31 @@
 <div class="container">
   <div class="title">Ваш заказ:</div>
   <div class="detail">
-    <div class="detail__item" *ngFor="let detail of details">
+    <ng-container *ngIf="order$ | async as order">
+      <div class="detail__item" *ngIf="order.pointId || order.cityId">
+        <div class="detail__item_name">Пункт выдачи</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>{{ order.cityId }} {{ order.pointId }}</div>
+        </div>
+      </div>
+    </ng-container>
+    <!--div class="detail__item" *ngFor="let detail of details">
       <div class="detail__item_name">{{detail.name}}</div>
       <div class="detail__item_points"></div>
       <div class="detail__item_choose">
         <div>{{detail.value}}</div>
       </div>
-    </div>
+    </div-->
     <div class="price">
       <div class="price__title">Цена:</div>
       <div class="price__sum">16 000 ₽</div>
     </div>
-    <app-button theme="green">{{ text }}</app-button>
+    <app-button
+      theme="green"
+      (click)="goToNextStep()"
+    >
+      {{ titleButton() }}
+    </app-button>
   </div>
 </div>

@@ -20,24 +20,36 @@ import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-ord
         component: LandingPageComponent,
       },
       {
-        path: 'order',
+        path: 'order/:orderId',
         component: OrderPageComponent,
         children: [
           {
             path: '',
             component: LocationStepComponent,
+            data: {
+              step: 1,
+            }
           },
           {
             path: 'model',
             component: ChooseModelStepComponent,
+            data: {
+              step: 2,
+            }
           },
           {
             path: 'option',
             component: AdditionalOptionStepComponent,
+            data: {
+              step: 3,
+            }
           },
           {
-            path: 'summary-order',
+            path: 'summary',
             component: SummaryOrderStepComponent,
+            data: {
+              step: 4,
+            }
           },
         ],
       },

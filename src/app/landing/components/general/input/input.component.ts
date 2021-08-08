@@ -33,6 +33,7 @@ export class InputComponent implements OnInit, ControlValueAccessor {
 
   clearInput(): void {
     this.writeValue('');
+    this.onChange('');
   }
 
   writeValue(value): void {
