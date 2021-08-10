@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./details-order.component.scss'],
 })
 export class DetailsOrderComponent {
-  text = 'Итого';
+  text = 'Заказать';
 
   theme = '';
 

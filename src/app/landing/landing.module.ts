@@ -31,6 +31,8 @@ import { CarCardComponent } from './components/order/car-card/car-card.component
 import { CheckboxComponent } from './components/general/checkbox/checkbox.component';
 import { ButtonComponent } from './components/general/button/button.component';
 import { DatepickerComponent } from './components/order/datepicker/datepicker.component';
+// eslint-disable-next-line
+import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-order-step/summary-order-step.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -53,6 +55,7 @@ import { DatepickerComponent } from './components/order/datepicker/datepicker.co
     CheckboxComponent,
     ButtonComponent,
     DatepickerComponent,
+    SummaryOrderStepComponent,
   ],
   imports: [
     CommonModule,
