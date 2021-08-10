@@ -1,5 +1,5 @@
-@import '../../../shared/styles/media';
-@import '../../../shared/styles/colors';
+@import '../../../styles/media';
+@import '../../../styles/colors';
 
 .position {
   display: grid;
@@ -9,7 +9,7 @@
   .main {
     display: flex;
     flex-direction: column;
-    height: fit-content;
+    height: 100%;
 
     .header {
       max-width: 1250px;

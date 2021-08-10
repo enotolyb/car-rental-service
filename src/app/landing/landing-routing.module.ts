@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { OrderPageComponent } from './pages/order-page/order-page.component';
-import { LocationStepComponent } from './order-steps/location-step/location-step.component';
+import { OrderPageComponent } from './pages/order/order-page/order-page.component';
 // eslint-disable-next-line
-import { ChooseModelStepComponent } from './order-steps/choose-model-step/choose-model-step.component';
+import { LocationStepComponent } from './pages/order/order-steps/location-step/location-step.component';
+// eslint-disable-next-line
+import { ChooseModelStepComponent } from './pages/order/order-steps/choose-model-step/choose-model-step.component';
+// eslint-disable-next-line
+import { AdditionalOptionStepComponent } from './pages/order/order-steps/additional-option-step/additional-option-step.component';
 
 @NgModule({
   declarations: [],
@@ -25,6 +28,10 @@ import { ChooseModelStepComponent } from './order-steps/choose-model-step/choose
           {
             path: 'model',
             component: ChooseModelStepComponent,
+          },
+          {
+            path: 'option',
+            component: AdditionalOptionStepComponent,
           },
         ],
       },
