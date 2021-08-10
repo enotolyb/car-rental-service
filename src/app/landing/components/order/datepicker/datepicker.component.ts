@@ -4,24 +4,12 @@ import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-component
 import {
   NGX_MAT_DATE_FORMATS,
   NgxMatDateAdapter,
-  NgxMatDateFormats,
 } from '@angular-material-components/datetime-picker';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CustomDateAdapter } from './custom-adapter.service';
-
-const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
-  parse: {
-    dateInput: 'l, LTS',
-  },
-  display: {
-    dateInput: 'DD.MM.YYYY HH:mm',
-    monthYearLabel: 'MMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
+import { CUSTOM_DATE_FORMATS } from './const';
 
 @Component({
   selector: 'app-datepicker',
