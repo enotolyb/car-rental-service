@@ -28,28 +28,28 @@ import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-ord
             component: LocationStepComponent,
             data: {
               step: 1,
-            }
+            },
           },
           {
             path: 'model',
             component: ChooseModelStepComponent,
             data: {
               step: 2,
-            }
+            },
           },
           {
             path: 'option',
             component: AdditionalOptionStepComponent,
             data: {
               step: 3,
-            }
+            },
           },
           {
             path: 'summary',
             component: SummaryOrderStepComponent,
             data: {
               step: 4,
-            }
+            },
           },
         ],
       },

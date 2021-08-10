@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { OrderService } from '../../../../services/order.service';
 import { take } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { OrderService } from '../../../../services/order.service';
 
 @Component({
   selector: 'app-location-step',
   templateUrl: './location-step.component.html',
   styleUrls: ['./location-step.component.scss'],
 })
-export class LocationStepComponent implements OnInit {
+export class LocationStepComponent implements OnInit, OnDestroy {
   private destroy = new Subject();
 
   form = this.formBuilder.group({
@@ -24,11 +24,11 @@ export class LocationStepComponent implements OnInit {
       this.orderService.updateOrder(form);
     });
 
-    this.orderService.order$.pipe(take(1)).subscribe(order => {
+    this.orderService.order$.pipe(take(1)).subscribe((order) => {
       this.form.patchValue({
         cityId: order.cityId,
         pointId: order.pointId,
-      })
+      });
     });
   }
 

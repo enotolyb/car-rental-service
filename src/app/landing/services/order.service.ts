@@ -1,32 +1,32 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Order, OrderPrice } from '../models/order';
 import { filter, map } from 'rxjs/operators';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { Order, OrderPrice } from '../models/order';
 
 const NEW_ORDER_ID = 'new';
 
 @Injectable()
 export class OrderService implements OnDestroy {
-  private destroy = new Subject();
-
   order = new BehaviorSubject<Order>({} as Order);
+
   activeStep: number;
 
   order$: Observable<Order> = this.order.asObservable();
+
   orderPrice$: Observable<OrderPrice>;
+
+  private destroy = new Subject();
 
   constructor(private activeRoute: ActivatedRoute, private router: Router) {
     this.orderPrice$ = this.order$.pipe(
-      map(order => ({
+      map((order) => ({
         priceTotal: order.price,
         priceMin: order.price,
-      }))
+      })),
     );
 
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.activeStep = this.activeRoute.children[0].snapshot.data.step;
     });
   }
@@ -40,7 +40,7 @@ export class OrderService implements OnDestroy {
     this.order.next({
       ...this.order.getValue(),
       ...orderDetail,
-    })
+    });
   }
 
   initOrder(orderId: string): void {
@@ -49,7 +49,7 @@ export class OrderService implements OnDestroy {
     } else {
       this.order.next({
         cityId: 'Ульяновск',
-        pointId: 'Московсое 33',
+        pointId: 'Наримова 42',
       } as Order);
     }
   }
@@ -70,6 +70,8 @@ export class OrderService implements OnDestroy {
         this.router.navigate(['summary'], {
           relativeTo: this.activeRoute,
         });
+        break;
+      default:
         break;
     }
   }

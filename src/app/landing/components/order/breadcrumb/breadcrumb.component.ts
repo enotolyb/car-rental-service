@@ -7,8 +7,7 @@ import { OrderService } from '../../../services/order.service';
   styleUrls: ['./breadcrumb.component.scss'],
 })
 export class BreadcrumbComponent {
-  constructor(private orderService: OrderService) {
-  }
+  constructor(private orderService: OrderService) {}
 
   get activeStep(): number {
     return this.orderService.activeStep;

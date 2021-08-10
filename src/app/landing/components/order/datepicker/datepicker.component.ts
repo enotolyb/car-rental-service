@@ -1,4 +1,4 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material';
 import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
 import {
@@ -7,6 +7,8 @@ import {
   NgxMatDateFormats,
 } from '@angular-material-components/datetime-picker';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { CustomDateAdapter } from './custom-adapter.service';
 
 const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
@@ -40,7 +42,9 @@ const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
     },
   ],
 })
-export class DatepickerComponent implements OnInit, ControlValueAccessor {
+export class DatepickerComponent implements OnInit, ControlValueAccessor, OnDestroy {
+  private destroy = new Subject();
+
   dateControl = new FormControl();
 
   onChange: (value: string) => void;
@@ -48,11 +52,16 @@ export class DatepickerComponent implements OnInit, ControlValueAccessor {
   onTouch: () => void;
 
   ngOnInit(): void {
-    this.dateControl.valueChanges.subscribe((value) => {
+    this.dateControl.valueChanges.pipe(takeUntil(this.destroy)).subscribe((value) => {
       if (this.onChange) {
         this.onChange(value);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy.next();
+    this.destroy.complete();
   }
 
   clearPicker(): void {

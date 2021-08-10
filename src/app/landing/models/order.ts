@@ -1,16 +1,16 @@
 export interface Order {
-  orderStatusId: number,
-  cityId: string, // todo change to number
-  pointId: string, // todo change to number
-  carId: number,
-  color: string,
-  dateFrom: number,
-  dateTo: number,
-  rateId: number,
-  price: number,
-  isFullTank: boolean,
-  isNeedChildChair: boolean,
-  isRightWheel: boolean
+  orderStatusId: number;
+  cityId: string; // todo change to number
+  pointId: string; // todo change to number
+  carId: number;
+  color: string;
+  dateFrom: number;
+  dateTo: number;
+  rateId: number;
+  price: number;
+  isFullTank: boolean;
+  isNeedChildChair: boolean;
+  isRightWheel: boolean;
 }
 
 export interface OrderPrice {

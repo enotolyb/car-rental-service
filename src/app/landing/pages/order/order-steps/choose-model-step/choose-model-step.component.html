@@ -8,6 +8,6 @@
   <app-car-card
     *ngFor="let car of cars"
     [active]="car.id === selectedCarId"
-    (checkCard)="selectedCarId = car.id">
+    (checkCard)="chooseCar(car.id)">
   </app-car-card>
 </div>
