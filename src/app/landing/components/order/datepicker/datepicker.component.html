@@ -1,0 +1,12 @@
+<div class="container">
+  <input
+    class="input cursor-pointer"
+    [ngxMatDatetimePicker]="picker"
+    placeholder="Введите дату и время"
+    [formControl]="dateControl"
+    (click)="picker.open()"
+  >
+  <ngx-mat-datetime-picker #picker [showSeconds]="false"></ngx-mat-datetime-picker>
+  <img class="field-clear cursor-pointer" src="./assets/img/icons/cross.svg" (click)="clearPicker()">
+</div>
+

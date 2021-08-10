@@ -1,0 +1,38 @@
+<div [formGroup]="formControl" class="container">
+  <div class="block">
+    <div class="block__text">Цвет</div>
+    <div class="block__check-color">
+      <app-radio-button name="color">Любой</app-radio-button>
+      <app-radio-button name="color">Красный</app-radio-button>
+      <app-radio-button name="color">Голубой</app-radio-button>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block__text">Дата аренды</div>
+    <div class="block__choose-date">
+      <div class="block__choose-date_item">
+        <div class="text">С</div>
+        <app-datepicker formControlName="dateFrom"></app-datepicker>
+      </div>
+      <div class="block__choose-date_item">
+        <div class="text">По</div>
+        <app-datepicker formControlName="dateTo"></app-datepicker>
+      </div>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block__text">Тариф</div>
+    <div class="block__check-payment">
+      <app-radio-button name="payment">Поминутно, 7₽/мин</app-radio-button>
+      <app-radio-button name="payment">На сутки, 1999 ₽/сутки</app-radio-button>
+    </div>
+  </div>
+  <div class="block">
+    <div class="block__text">Доп услуги</div>
+    <div class="block__check-option">
+      <app-checkbox
+        *ngFor="let option of options">{{option.label}}
+      </app-checkbox>
+    </div>
+  </div>
+</div>

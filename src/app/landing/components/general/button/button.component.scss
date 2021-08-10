@@ -1,5 +1,5 @@
-@import '../../../shared/styles/colors';
-@import '../../../shared/styles/media';
+@import '../../../styles/colors';
+@import '../../../styles/media';
 
 .button {
   background-blend-mode: darken;
@@ -85,6 +85,12 @@
   &_landing {
     width: 250px;
     height: 48px;
+
+    @include mobile() {
+      width: 100%;
+      border-radius: 0;
+      height: 50px;
+    }
   }
 
   &_slider {
@@ -95,12 +101,6 @@
   &_order {
     width: 287px;
     height: 48px;
-  }
-
-  @include mobile() {
-    width: 100%;
-    border-radius: 0;
-    height: 50px;
   }
 }
 
