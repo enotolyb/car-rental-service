@@ -10,6 +10,8 @@ import { ChooseModelStepComponent } from './pages/order/order-steps/choose-model
 import { AdditionalOptionStepComponent } from './pages/order/order-steps/additional-option-step/additional-option-step.component';
 // eslint-disable-next-line
 import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-order-step/summary-order-step.component';
+// eslint-disable-next-line
+import { ModalConfirmOrderComponent } from './components/order/modal-confirm-order/modal-confirm-order.component';
 
 @NgModule({
   declarations: [],
@@ -50,6 +52,12 @@ import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-ord
             data: {
               step: 4,
             },
+            children: [
+              {
+                path: 'confirm',
+                component: ModalConfirmOrderComponent,
+              },
+            ],
           },
         ],
       },

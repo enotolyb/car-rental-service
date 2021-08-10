@@ -3,8 +3,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Order, OrderPrice } from '../models/order';
-
-const NEW_ORDER_ID = 'new';
+import { NEW_ORDER_ID } from './const';
 
 @Injectable()
 export class OrderService implements OnDestroy {
@@ -68,6 +67,11 @@ export class OrderService implements OnDestroy {
         break;
       case 3:
         this.router.navigate(['summary'], {
+          relativeTo: this.activeRoute,
+        });
+        break;
+      case 4:
+        this.router.navigate(['summary/confirm'], {
           relativeTo: this.activeRoute,
         });
         break;
