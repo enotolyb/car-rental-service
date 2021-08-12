@@ -6,8 +6,9 @@
 
 <div class="block-cards">
   <app-car-card
-    *ngFor="let car of cars"
+    *ngFor="let car of cars$ | async"
     [active]="car.id === selectedCarId"
+    [car]="car"
     (checkCard)="chooseCar(car.id)">
   </app-car-card>
 </div>

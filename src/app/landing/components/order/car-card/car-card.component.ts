@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Car } from '../../../models/car';
 
 @Component({
   selector: 'app-car-card',
@@ -7,6 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CarCardComponent {
   @Input() active = false;
+
+  @Input() car: Car;
 
   @Output() checkCard = new EventEmitter();
 

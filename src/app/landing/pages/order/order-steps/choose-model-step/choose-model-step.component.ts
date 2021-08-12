@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { OrderService } from '../../../../services/order.service';
+import { Car } from '../../../../models/car';
+import { CarService } from '../../../../services/car.service';
 
 @Component({
   selector: 'app-choose-model-step',
@@ -10,20 +12,22 @@ import { OrderService } from '../../../../services/order.service';
   styleUrls: ['./choose-model-step.component.scss'],
 })
 export class ChooseModelStepComponent implements OnInit, OnDestroy {
-  selectedCarId: number | null;
+  cars$: Observable<Car[]>;
 
-  cars = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
+  selectedCarId: number | null;
 
   private destroy = new Subject();
 
   price = new FormControl();
 
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, private carService: CarService) {}
 
   ngOnInit(): void {
     this.orderService.order$.pipe(take(1)).subscribe((order) => {
       this.selectedCarId = order.carId;
     });
+
+    this.cars$ = this.carService.getCars().pipe(map((response) => response.data));
   }
 
   ngOnDestroy(): void {
