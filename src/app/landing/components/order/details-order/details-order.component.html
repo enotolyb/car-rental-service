@@ -15,7 +15,7 @@
       <div class="price__sum">16 000 ₽</div>
     </div>
     <app-button
-      theme="green"
+      [theme]="isDisabledButton() ? 'blocked' : 'green'"
       (click)="goToNextStep()"
     >
       {{ titleButton() }}

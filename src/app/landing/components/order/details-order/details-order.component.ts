@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order } from '../../../models/order';
+import { Order, OrderStep } from '../../../models/order';
 import { OrderService } from '../../../services/order.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class DetailsOrderComponent {
 
   constructor(private orderService: OrderService) {}
 
-  get activeStep(): number {
+  get activeStep(): OrderStep {
     return this.orderService.activeStep;
   }
 
@@ -23,16 +23,20 @@ export class DetailsOrderComponent {
 
   titleButton(): string {
     switch (this.activeStep) {
-      case 1:
+      case OrderStep.location:
         return 'Выбрать модель';
-      case 2:
+      case OrderStep.model:
         return 'Дополнительно';
-      case 3:
+      case OrderStep.option:
         return 'Итого';
-      case 4:
+      case OrderStep.summary:
         return 'Заказать';
       default:
         return '';
     }
+  }
+
+  isDisabledButton(): boolean {
+    return !this.orderService.checkIsCompleteStep(this.activeStep);
   }
 }

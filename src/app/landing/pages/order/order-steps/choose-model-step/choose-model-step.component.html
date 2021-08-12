@@ -1,7 +1,7 @@
 <div class="filter">
-  <app-radio-button name="car-filter">Все модели</app-radio-button>
-  <app-radio-button name="car-filter">Эконом</app-radio-button>
-  <app-radio-button name="car-filter">Премиум</app-radio-button>
+  <app-radio-button [formControl]="price" value="all" name="car-filter">Все модели</app-radio-button>
+  <app-radio-button [formControl]="price" value="economic" name="car-filter">Эконом</app-radio-button>
+  <app-radio-button [formControl]="price" value="premium" name="car-filter">Премиум</app-radio-button>
 </div>
 
 <div class="block-cards">

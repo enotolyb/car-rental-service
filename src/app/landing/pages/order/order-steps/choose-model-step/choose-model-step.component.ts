@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { FormControl } from '@angular/forms';
 import { OrderService } from '../../../../services/order.service';
 
 @Component({
@@ -14,6 +15,8 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
   cars = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
   private destroy = new Subject();
+
+  price = new FormControl();
 
   constructor(private orderService: OrderService) {}
 

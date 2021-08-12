@@ -17,3 +17,10 @@ export interface OrderPrice {
   priceTotal?: number;
   priceMin?: number;
 }
+
+export enum OrderStep {
+  location = 'location',
+  model = 'model',
+  option = 'option',
+  summary = 'summary',
+}

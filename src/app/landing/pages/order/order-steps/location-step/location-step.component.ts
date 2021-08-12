@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { take } from 'rxjs/operators';
+import { take, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { OrderService } from '../../../../services/order.service';
 
@@ -20,7 +20,7 @@ export class LocationStepComponent implements OnInit, OnDestroy {
   constructor(private formBuilder: FormBuilder, private orderService: OrderService) {}
 
   ngOnInit(): void {
-    this.form.valueChanges.subscribe((form) => {
+    this.form.valueChanges.pipe(takeUntil(this.destroy)).subscribe((form) => {
       this.orderService.updateOrder(form);
     });
 

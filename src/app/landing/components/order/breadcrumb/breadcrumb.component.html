@@ -1,46 +1,15 @@
 <div class="container">
   <ul class="breadcrumbs">
-    <li class="breadcrumbs__item">
-      <a routerLink="./"
+    <li class="breadcrumbs__item" *ngFor="let item of items; let last = last">
+      <a (click)="item.linkHandler()"
          class="breadcrumbs__item_link cursor-pointer"
-         [class.no-pointer]="!isCompletedStep(1)"
-         [class.filled]="isCompletedStep(1)"
-         [class.active]="activeStep === 1"
+         [class.no-pointer]="!isCompletedStep(item.step)"
+         [class.filled]="isCompletedStep(item.step)"
+         [class.active]="activeStep === item.step"
       >
-        Местоположение
+        {{ item.title }}
       </a>
-      <img class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
-    </li>
-    <li class="breadcrumbs__item">
-      <a routerLink="model"
-         class="breadcrumbs__item_link cursor-pointer"
-         [class.no-pointer]="!isCompletedStep(2)"
-         [class.filled]="isCompletedStep(2)"
-         [class.active]="activeStep === 2"
-      >
-        Модель
-      </a>
-      <img class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
-    </li>
-    <li class="breadcrumbs__item">
-      <a routerLink="option"
-         class="breadcrumbs__item_link cursor-pointer"
-         [class.no-pointer]="!isCompletedStep(3)"
-         [class.filled]="isCompletedStep(3)"
-         [class.active]="activeStep === 3"
-      >
-        Дополнительно
-      </a>
-      <img class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
-    </li>
-    <li class="breadcrumbs__item">
-      <a routerLink="summary"
-         class="breadcrumbs__item_link cursor-pointer"
-         [class.no-pointer]="!isCompletedStep(4)"
-         [class.active]="activeStep === 4"
-      >
-        Итого
-      </a>
+      <img *ngIf="!last" class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
     </li>
   </ul>
 </div>
