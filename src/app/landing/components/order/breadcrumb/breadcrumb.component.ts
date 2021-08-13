@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { OrderService } from '../../../services/order.service';
 import { OrderStep } from '../../../models/order';
+import { OrderNavigationService } from '../../../services/order-navigation.service';
+import { breadcrumbs } from './breadcrumb.const';
 
 @Component({
   selector: 'app-breadcrumb',
@@ -8,36 +9,19 @@ import { OrderStep } from '../../../models/order';
   styleUrls: ['./breadcrumb.component.scss'],
 })
 export class BreadcrumbComponent {
-  items = [
-    {
-      title: 'Местоположение',
-      linkHandler: () => this.orderService.navigateToStart(),
-      step: OrderStep.location,
-    },
-    {
-      title: 'Модель',
-      linkHandler: () => this.orderService.navigateToModel(),
-      step: OrderStep.model,
-    },
-    {
-      title: 'Дополнительно',
-      linkHandler: () => this.orderService.navigateToOption(),
-      step: OrderStep.option,
-    },
-    {
-      title: 'Итого',
-      linkHandler: () => this.orderService.navigateToSummary(),
-      step: OrderStep.summary,
-    },
-  ];
+  items = breadcrumbs;
 
-  constructor(private orderService: OrderService) {}
+  constructor(private orderNavigationService: OrderNavigationService) {}
 
   get activeStep(): OrderStep {
-    return this.orderService.activeStep;
+    return this.orderNavigationService.activeStep;
   }
 
   isCompletedStep(step: OrderStep): boolean {
-    return this.orderService.checkAvailableNavigateToState(step);
+    return this.orderNavigationService.checkAvailableNavigateToState(step);
+  }
+
+  navigateToStep(orderStep: OrderStep) {
+    this.orderNavigationService.navigateToStep(orderStep);
   }
 }

@@ -1,7 +1,7 @@
 <div class="container">
   <ul class="breadcrumbs">
     <li class="breadcrumbs__item" *ngFor="let item of items; let last = last">
-      <a (click)="item.linkHandler()"
+      <a (click)="navigateToStep(item.step)"
          class="breadcrumbs__item_link cursor-pointer"
          [class.no-pointer]="!isCompletedStep(item.step)"
          [class.filled]="isCompletedStep(item.step)"

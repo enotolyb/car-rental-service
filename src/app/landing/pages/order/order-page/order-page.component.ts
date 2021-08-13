@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { OrderService } from '../../../services/order.service';
+import { OrderNavigationService } from '../../../services/order-navigation.service';
 
 @Component({
   selector: 'app-order-page',
   templateUrl: './order-page.component.html',
   styleUrls: ['./order-page.component.scss'],
-  providers: [OrderService],
+  providers: [OrderService, OrderNavigationService],
 })
 export class OrderPageComponent implements OnInit, OnDestroy {
   private destroy = new Subject();

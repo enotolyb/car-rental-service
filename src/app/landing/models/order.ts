@@ -23,4 +23,5 @@ export enum OrderStep {
   model = 'model',
   option = 'option',
   summary = 'summary',
+  confirm = 'summary/confirm',
 }

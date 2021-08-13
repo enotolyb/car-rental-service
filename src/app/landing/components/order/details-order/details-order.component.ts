@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Order, OrderStep } from '../../../models/order';
 import { OrderService } from '../../../services/order.service';
+import { OrderNavigationService } from '../../../services/order-navigation.service';
 
 @Component({
   selector: 'app-details-order',
@@ -11,14 +12,17 @@ import { OrderService } from '../../../services/order.service';
 export class DetailsOrderComponent {
   order$: Observable<Order> = this.orderService.order$;
 
-  constructor(private orderService: OrderService) {}
+  constructor(
+    private orderNavigationService: OrderNavigationService,
+    private orderService: OrderService,
+  ) {}
 
   get activeStep(): OrderStep {
-    return this.orderService.activeStep;
+    return this.orderNavigationService.activeStep;
   }
 
   goToNextStep() {
-    this.orderService.goToNextStep();
+    this.orderNavigationService.goToNextStep();
   }
 
   titleButton(): string {
@@ -37,6 +41,6 @@ export class DetailsOrderComponent {
   }
 
   isDisabledButton(): boolean {
-    return !this.orderService.checkIsCompleteStep(this.activeStep);
+    return !this.orderNavigationService.checkIsCompleteStep(this.activeStep);
   }
 }
