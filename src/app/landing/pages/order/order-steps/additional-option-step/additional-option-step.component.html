@@ -2,11 +2,29 @@
   <div class="block">
     <div class="block__text">Цвет</div>
     <div class="block__check-color">
-      <app-radio-button name="color">Любой</app-radio-button>
-      <app-radio-button name="color">Красный</app-radio-button>
-      <app-radio-button name="color">Голубой</app-radio-button>
+      <app-radio-button
+        formControlName="color"
+        value="anyColor"
+        name="color"
+      >
+        Любой
+      </app-radio-button>
+      <app-radio-button
+        formControlName="color"
+        value="red"
+        name="color">
+        Красный
+      </app-radio-button>
+      <app-radio-button
+        formControlName="color"
+        value="blue"
+        name="color"
+      >
+        Голубой
+      </app-radio-button>
     </div>
   </div>
+
   <div class="block">
     <div class="block__text">Дата аренды</div>
     <div class="block__choose-date">
@@ -20,19 +38,33 @@
       </div>
     </div>
   </div>
+
   <div class="block">
     <div class="block__text">Тариф</div>
     <div class="block__check-payment">
-      <app-radio-button name="payment">Поминутно, 7₽/мин</app-radio-button>
-      <app-radio-button name="payment">На сутки, 1999 ₽/сутки</app-radio-button>
+      <app-radio-button
+        formControlName="rateId"
+        value="minute"
+        name="rateId"
+      >
+        Поминутно, 7₽/мин
+      </app-radio-button>
+      <app-radio-button
+        formControlName="rateId"
+        value="day"
+        name="rateId"
+      >
+        На сутки, 1999 ₽/сутки
+      </app-radio-button>
     </div>
   </div>
+
   <div class="block">
     <div class="block__text">Доп услуги</div>
     <div class="block__check-option">
-      <app-checkbox
-        *ngFor="let option of options">{{option.label}}
-      </app-checkbox>
+      <app-checkbox formControlName="isFullTank">Полный бак, 500р</app-checkbox>
+      <app-checkbox formControlName="isNeedChildChair">Детское кресло, 200р</app-checkbox>
+      <app-checkbox formControlName="isRightWheel">Правый руль, 1600р</app-checkbox>
     </div>
   </div>
 </div>
