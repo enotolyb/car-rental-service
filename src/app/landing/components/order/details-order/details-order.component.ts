@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Order, OrderStep } from '../../../models/order';
+import { OrderService } from '../../../services/order.service';
+import { OrderNavigationService } from '../../../services/order-navigation.service';
 
 @Component({
   selector: 'app-details-order',
@@ -6,16 +10,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./details-order.component.scss'],
 })
 export class DetailsOrderComponent {
-  text = 'Заказать';
+  order$: Observable<Order> = this.orderService.order$;
 
-  theme = '';
+  constructor(
+    private orderNavigationService: OrderNavigationService,
+    private orderService: OrderService,
+  ) {}
 
-  details = [
-    { id: 1, name: 'Пункт выдачи', value: 'Ульяновск, Нариманова 42' },
-    { id: 2, name: 'Модель', value: 'Hyndai, i30 N' },
-    { id: 3, name: 'Цвет', value: 'Голубой' },
-    { id: 4, name: 'Длительность аренды', value: '1д 2ч' },
-    { id: 5, name: 'Тариф', value: 'На сутки' },
-    { id: 6, name: 'Полный бак', value: 'Да' },
-  ];
+  get activeStep(): OrderStep {
+    return this.orderNavigationService.activeStep;
+  }
+
+  goToNextStep() {
+    this.orderNavigationService.goToNextStep();
+  }
+
+  titleButton(): string {
+    switch (this.activeStep) {
+      case OrderStep.location:
+        return 'Выбрать модель';
+      case OrderStep.model:
+        return 'Дополнительно';
+      case OrderStep.option:
+        return 'Итого';
+      case OrderStep.summary:
+        return 'Заказать';
+      default:
+        return '';
+    }
+  }
+
+  isDisabledButton(): boolean {
+    return !this.orderNavigationService.checkIsCompleteStep(this.activeStep);
+  }
 }

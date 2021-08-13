@@ -1,19 +1,15 @@
 <div class="container">
   <ul class="breadcrumbs">
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__item_link active">Местоположение</a>
-      <img class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
-    </li>
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__item_link">Модель</a>
-      <img class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
-    </li>
-    <li class="breadcrumbs__item">
-      <span class="breadcrumbs__item_link">Дополнительно</span>
-      <img class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
-    </li>
-    <li class="breadcrumbs__item">
-      <span class="breadcrumbs__item_link">Итого</span>
+    <li class="breadcrumbs__item" *ngFor="let item of items; let last = last">
+      <a (click)="navigateToStep(item.step)"
+         class="breadcrumbs__item_link cursor-pointer"
+         [class.no-pointer]="!isCompletedStep(item.step)"
+         [class.filled]="isCompletedStep(item.step)"
+         [class.active]="activeStep === item.step"
+      >
+        {{ item.title }}
+      </a>
+      <img *ngIf="!last" class="breadcrumbs__item_img" src="./assets/img/icons/arrow.svg">
     </li>
   </ul>
 </div>
