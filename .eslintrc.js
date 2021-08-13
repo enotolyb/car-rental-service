@@ -20,6 +20,8 @@ module.exports = {
         'linebreak-style': 'off',
         "import/prefer-default-export": "off",
         'arrow-parens': 'off',
+        'class-methods-use-this': 'off',
+        'consistent-return': 'off',
         'object-curly-newline': 'off',
         'no-mixed-operators': 'off',
         'arrow-body-style': 'off',
@@ -28,7 +30,7 @@ module.exports = {
         'space-before-function-paren': 0,
         'max-len': ['error', 100, 2, { ignoreUrls: true }],
         'no-console': 'error',
-        'no-alert': 'error',
+        'no-alert': 'off',
         'prettier/prettier': ['error']
       }
     },

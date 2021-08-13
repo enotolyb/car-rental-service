@@ -9,9 +9,10 @@ import { CarResponse } from '../models/car-response';
 export class CarService {
   constructor(private api: ApiService) {}
 
-  getCars(): Observable<CarResponse> {
+  getCars(categoryId?: string): Observable<CarResponse> {
     return this.api.get<CarResponse>(`car`, {
       limit: '20',
+      ...(categoryId ? { categoryId } : {}),
     });
   }
 }
