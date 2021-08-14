@@ -2,15 +2,33 @@
   <div [formGroup]="form" class="block-place">
     <div class="place__item">
       <div class="place__item_title">Город</div>
-      <app-input formControlName="cityId" placeholder="Начните вводить город"></app-input>
+      <app-input
+        formControlName="cityId"
+        placeholder="Начните вводить город"
+        [matAutocompleteRef]="cityAuto"
+      ></app-input>
+      <mat-autocomplete #cityAuto="matAutocomplete" [displayWith]="displayCityFn">
+        <mat-option *ngFor="let option of cities$ | async" [value]="option">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
     </div>
     <div class="place__item">
       <div class="place__item_title">Пункт выдачи</div>
-      <app-input formControlName="pointId" placeholder="Начните вводить пункт выдачи"></app-input>
+      <app-input
+        formControlName="pointId"
+        placeholder="Начните вводить пункт выдачи"
+        [matAutocompleteRef]="pointAuto"
+      ></app-input>
+      <mat-autocomplete #pointAuto="matAutocomplete" [displayWith]="displayPointFn">
+        <mat-option *ngFor="let option of points$ | async" [value]="option">
+          {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
     </div>
   </div>
   <div class="text">
     Выбрать на карте:
   </div>
-  <img class="img" src="./assets/img/order/map.png">
+  <app-map [mapCenter]="mapCenter$ | async" [points]="mapPoints$ | async"></app-map>
 </div>

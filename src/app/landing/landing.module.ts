@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatDatepickerModule } from '@angular/material';
+import { MatAutocompleteModule, MatDatepickerModule, MatOptionModule } from '@angular/material';
+import { AgmCoreModule } from '@agm/core';
 import {
   NgxMatDatetimePickerModule,
   NgxMatTimepickerModule,
@@ -35,6 +36,7 @@ import { DatepickerComponent } from './components/order/datepicker/datepicker.co
 import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-order-step/summary-order-step.component';
 // eslint-disable-next-line
 import { ModalConfirmOrderComponent } from './components/order/modal-confirm-order/modal-confirm-order.component';
+import { MapComponent } from './components/order/map/map.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -59,6 +61,7 @@ import { ModalConfirmOrderComponent } from './components/order/modal-confirm-ord
     DatepickerComponent,
     SummaryOrderStepComponent,
     ModalConfirmOrderComponent,
+    MapComponent,
   ],
   imports: [
     CommonModule,
@@ -68,6 +71,11 @@ import { ModalConfirmOrderComponent } from './components/order/modal-confirm-ord
     MatDatepickerModule,
     NgxMatTimepickerModule,
     NgxMatDatetimePickerModule,
+    MatAutocompleteModule,
+    MatOptionModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAdKEF25ExW7hp_ZudPLxpxXzD78tMfcyg',
+    }),
   ],
 })
 export class LandingModule {}

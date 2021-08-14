@@ -22,6 +22,7 @@ module.exports = {
         'arrow-parens': 'off',
         'class-methods-use-this': 'off',
         'consistent-return': 'off',
+        'prefer-template': 'off',
         'object-curly-newline': 'off',
         'no-mixed-operators': 'off',
         'arrow-body-style': 'off',

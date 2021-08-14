@@ -1,7 +1,10 @@
+import { City } from './city';
+import { Point } from './point';
+
 export interface Order {
   orderStatusId: number;
-  cityId: string; // todo change to number
-  pointId: string; // todo change to number
+  cityId: City;
+  pointId: Point;
   carId: number;
   color: string;
   dateFrom: number;
