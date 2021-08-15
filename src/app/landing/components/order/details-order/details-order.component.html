@@ -6,13 +6,86 @@
         <div class="detail__item_name">Пункт выдачи</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>{{ order.cityId?.name }} {{ order.pointId?.name }}</div>
+          <div>{{ order.cityId?.name }},</div>
+          <div>{{ order.pointId?.name }}</div>
+        </div>
+      </div>
+      <div class="detail__item" *ngIf="order.carId">
+        <div class="detail__item_name">Модель</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>{{ order.carId.name }}</div>
+        </div>
+      </div>
+      <div class="detail__item" *ngIf="order.color">
+        <div class="detail__item_name">Цвет</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>{{ order.color }}</div>
+        </div>
+      </div>
+      <div class="detail__item" *ngIf="order.rateId">
+        <div class="detail__item_name">Длительность аренды</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>
+            {{ calcUnit(order) }}
+            <ng-container [ngSwitch]="order.rateId.rateTypeId.unit">
+              <ng-container *ngSwitchCase="tariffUnit.minutes">
+                мин
+              </ng-container>
+              <ng-container *ngSwitchCase="tariffUnit.days">
+                д
+              </ng-container>
+              <ng-container *ngSwitchCase="tariffUnit.weeks">
+                нед
+              </ng-container>
+              <ng-container *ngSwitchCase="tariffUnit.months">
+                мес
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="detail__item" *ngIf="order.rateId.rateTypeId.name">
+        <div class="detail__item_name">Тариф</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>{{ order.rateId.rateTypeId.name }}</div>
+        </div>
+      </div>
+      <div class="detail__item" *ngIf="order.isFullTank">
+        <div class="detail__item_name">Полный бак</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>Да</div>
+        </div>
+      </div>
+      <div class="detail__item" *ngIf="order.isNeedChildChair">
+        <div class="detail__item_name">Детское кресло</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>Да</div>
+        </div>
+      </div>
+      <div class="detail__item" *ngIf="order.isRightWheel">
+        <div class="detail__item_name">Правый руль</div>
+        <div class="detail__item_points"></div>
+        <div class="detail__item_choose">
+          <div>Да</div>
         </div>
       </div>
     </ng-container>
-    <div class="price">
+    <div class="price" *ngIf="price$ | async as price">
       <div class="price__title">Цена:</div>
-      <div class="price__sum">16 000 ₽</div>
+      <div class="price__sum">
+        <ng-container *ngIf="price.priceMin">
+          От {{ price.priceMin }} до {{ price.price }}
+        </ng-container>
+        <ng-container *ngIf="!price.priceMin">
+          {{ price.price }}
+        </ng-container>
+      </div>
     </div>
     <app-button
       [theme]="isDisabledButton() ? 'blocked' : 'green'"

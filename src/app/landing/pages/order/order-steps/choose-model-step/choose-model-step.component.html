@@ -13,6 +13,6 @@
     *ngFor="let car of cars$ | async"
     [active]="car.id === selectedCarId"
     [car]="car"
-    (checkCard)="chooseCar(car.id)">
+    (checkCard)="chooseCar(car)">
   </app-car-card>
 </div>

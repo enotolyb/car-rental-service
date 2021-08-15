@@ -4,23 +4,16 @@
     <div class="block__check-color">
       <app-radio-button
         formControlName="color"
-        value="anyColor"
+        value="Любой"
         name="color"
       >
         Любой
       </app-radio-button>
-      <app-radio-button
+      <app-radio-button *ngFor="let color of colors$ | async"
         formControlName="color"
-        value="red"
+        [value]="color"
         name="color">
-        Красный
-      </app-radio-button>
-      <app-radio-button
-        formControlName="color"
-        value="blue"
-        name="color"
-      >
-        Голубой
+        {{ color }}
       </app-radio-button>
     </div>
   </div>
@@ -43,18 +36,12 @@
     <div class="block__text">Тариф</div>
     <div class="block__check-payment">
       <app-radio-button
+        *ngFor="let tariff of tariffs$ | async"
         formControlName="rateId"
-        value="minute"
+        [value]="tariff"
         name="rateId"
       >
-        Поминутно, 7₽/мин
-      </app-radio-button>
-      <app-radio-button
-        formControlName="rateId"
-        value="day"
-        name="rateId"
-      >
-        На сутки, 1999 ₽/сутки
+        {{ tariff.rateTypeId.name }}, {{ tariff.price }} ₽/{{tariff.rateTypeId.unit}}
       </app-radio-button>
     </div>
   </div>

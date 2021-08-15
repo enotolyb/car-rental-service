@@ -27,7 +27,7 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.orderService.order$.pipe(take(1)).subscribe((order) => {
-      this.selectedCarId = order.carId;
+      this.selectedCarId = order.carId.id;
     });
 
     this.cars$ = this.categoryControl.valueChanges.pipe(
@@ -42,8 +42,8 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
     this.destroy.complete();
   }
 
-  chooseCar(carId: number): void {
-    this.selectedCarId = carId;
-    this.orderService.updateOrder({ carId });
+  chooseCar(car: Car): void {
+    this.selectedCarId = car.id;
+    this.orderService.updateOrder({ carId: car });
   }
 }

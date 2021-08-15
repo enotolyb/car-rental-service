@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order, OrderStep } from '../../../models/order';
+import { Order, OrderPrice, OrderStep } from '../../../models/order';
 import { OrderService } from '../../../services/order.service';
 import { OrderNavigationService } from '../../../services/order-navigation.service';
+import { TariffUnit } from '../../../models/tariff';
 
 @Component({
   selector: 'app-details-order',
@@ -11,6 +12,10 @@ import { OrderNavigationService } from '../../../services/order-navigation.servi
 })
 export class DetailsOrderComponent {
   order$: Observable<Order> = this.orderService.order$;
+
+  price$: Observable<OrderPrice> = this.orderService.orderPrice$;
+
+  tariffUnit = TariffUnit;
 
   constructor(
     private orderNavigationService: OrderNavigationService,
@@ -42,5 +47,9 @@ export class DetailsOrderComponent {
 
   isDisabledButton(): boolean {
     return !this.orderNavigationService.checkIsCompleteStep(this.activeStep);
+  }
+
+  calcUnit(order: Order): number {
+    return this.orderService.calcUnit(order);
   }
 }

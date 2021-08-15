@@ -37,6 +37,7 @@ import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-ord
 // eslint-disable-next-line
 import { ModalConfirmOrderComponent } from './components/order/modal-confirm-order/modal-confirm-order.component';
 import { MapComponent } from './components/order/map/map.component';
+import { ImgFallbackDirective } from './directivs/img-fallback.directive';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -62,6 +63,7 @@ import { MapComponent } from './components/order/map/map.component';
     SummaryOrderStepComponent,
     ModalConfirmOrderComponent,
     MapComponent,
+    ImgFallbackDirective,
   ],
   imports: [
     CommonModule,

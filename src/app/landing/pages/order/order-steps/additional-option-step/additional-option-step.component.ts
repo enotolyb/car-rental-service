@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { take, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { map, take, takeUntil } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
 import { OrderService } from '../../../../services/order.service';
+import { TariffsService } from '../../../../services/tariffs.service';
+import { Tariff } from '../../../../models/tariff';
 
 @Component({
   selector: 'app-additional-option-step',
@@ -10,6 +12,10 @@ import { OrderService } from '../../../../services/order.service';
   styleUrls: ['./additional-option-step.component.scss'],
 })
 export class AdditionalOptionStepComponent implements OnInit, OnDestroy {
+  tariffs$: Observable<Tariff[]>;
+
+  colors$: Observable<string[]>;
+
   private destroy = new Subject();
 
   formControl = new FormGroup({
@@ -22,7 +28,7 @@ export class AdditionalOptionStepComponent implements OnInit, OnDestroy {
     isRightWheel: new FormControl(),
   });
 
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, private tariffsService: TariffsService) {}
 
   ngOnInit(): void {
     this.formControl.valueChanges.pipe(takeUntil(this.destroy)).subscribe((form) => {
@@ -40,6 +46,10 @@ export class AdditionalOptionStepComponent implements OnInit, OnDestroy {
         isRightWheel: order.isRightWheel,
       });
     });
+
+    this.tariffs$ = this.tariffsService.getRates();
+
+    this.colors$ = this.orderService.order$.pipe(map((order) => order.carId.colors));
   }
 
   ngOnDestroy(): void {
