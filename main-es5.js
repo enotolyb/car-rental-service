@@ -881,6 +881,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
+    /* harmony import */
+
+
+    var _landing_services_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./landing/services/loading-interceptor.service */
+    "./src/app/landing/services/loading-interceptor.service.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -889,9 +895,162 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"]],
-      providers: [],
+      providers: [{
+        provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
+        useClass: _landing_services_loading_interceptor_service__WEBPACK_IMPORTED_MODULE_7__["LoadingInterceptorService"],
+        multi: true
+      }],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })], AppModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/landing/services/loading-interceptor.service.ts":
+  /*!*****************************************************************!*\
+    !*** ./src/app/landing/services/loading-interceptor.service.ts ***!
+    \*****************************************************************/
+
+  /*! exports provided: LoadingInterceptorService */
+
+  /***/
+  function srcAppLandingServicesLoadingInterceptorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LoadingInterceptorService", function () {
+      return LoadingInterceptorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _loading_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./loading.service */
+    "./src/app/landing/services/loading.service.ts");
+
+    var LoadingInterceptorService = /*#__PURE__*/function () {
+      function LoadingInterceptorService(loadingService) {
+        _classCallCheck(this, LoadingInterceptorService);
+
+        this.loadingService = loadingService;
+      }
+
+      _createClass(LoadingInterceptorService, [{
+        key: "intercept",
+        value: function intercept(req, next) {
+          var _this = this;
+
+          this.loadingService.showLoader();
+          return next.handle(req).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["finalize"])(function () {
+            return _this.loadingService.hideLoader();
+          }));
+        }
+      }]);
+
+      return LoadingInterceptorService;
+    }();
+
+    LoadingInterceptorService.ctorParameters = function () {
+      return [{
+        type: _loading_service__WEBPACK_IMPORTED_MODULE_3__["LoadingService"]
+      }];
+    };
+
+    LoadingInterceptorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], LoadingInterceptorService);
+    /***/
+  },
+
+  /***/
+  "./src/app/landing/services/loading.service.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/landing/services/loading.service.ts ***!
+    \*****************************************************/
+
+  /*! exports provided: LoadingService */
+
+  /***/
+  function srcAppLandingServicesLoadingServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LoadingService", function () {
+      return LoadingService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+
+    var LoadingService = /*#__PURE__*/function () {
+      function LoadingService() {
+        _classCallCheck(this, LoadingService);
+
+        this.loading$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+      }
+
+      _createClass(LoadingService, [{
+        key: "isLoading",
+        value: function isLoading() {
+          return this.loading$.asObservable();
+        }
+      }, {
+        key: "showLoader",
+        value: function showLoader() {
+          this.loading$.next(true);
+        }
+      }, {
+        key: "hideLoader",
+        value: function hideLoader() {
+          this.loading$.next(false);
+        }
+      }]);
+
+      return LoadingService;
+    }();
+
+    LoadingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], LoadingService);
     /***/
   },
 
