@@ -85432,7 +85432,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"filter\">\n  <app-radio-button\n    *ngFor=\"let category of categories\"\n    [formControl]=\"categoryControl\"\n    [value]=\"category.id\"\n    name=\"car-filter\">\n    {{ category.name }}\n  </app-radio-button>\n</div>\n\n<ng-container *ngIf=\"isLoading() | async\">\n  <div class=\"block-loader\">\n    <div class=\"loader\"></div>\n  </div>\n</ng-container>\n\n\n<div class=\"block-cards\">\n  <app-car-card\n    *ngFor=\"let car of cars$ | async\"\n    [active]=\"car.id === selectedCarId\"\n    [car]=\"car\"\n    (checkCard)=\"chooseCar(car.id)\">\n  </app-car-card>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"filter\">\n  <app-radio-button\n    *ngFor=\"let category of categories\"\n    [formControl]=\"categoryControl\"\n    [value]=\"category.id\"\n    name=\"car-filter\">\n    {{ category.name }}\n  </app-radio-button>\n</div>\n\n<ng-container *ngIf=\"isLoading$ | async\">\n  <div class=\"block-loader\">\n    <div class=\"loader\"></div>\n  </div>\n</ng-container>\n\n\n<div class=\"block-cards\">\n  <app-car-card\n    *ngFor=\"let car of cars$ | async\"\n    [active]=\"car.id === selectedCarId\"\n    [car]=\"car\"\n    (checkCard)=\"chooseCar(car.id)\">\n  </app-car-card>\n</div>\n\n");
 
 /***/ }),
 
@@ -87103,6 +87103,7 @@ let ChooseModelStepComponent = class ChooseModelStepComponent {
         this.categories = _const__WEBPACK_IMPORTED_MODULE_7__["categories"];
         this.destroy = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.categoryControl = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]();
+        this.isLoading$ = this.loadingService.isLoading$;
     }
     ngOnInit() {
         this.orderService.order$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["take"])(1)).subscribe((order) => {
@@ -87117,9 +87118,6 @@ let ChooseModelStepComponent = class ChooseModelStepComponent {
     chooseCar(carId) {
         this.selectedCarId = carId;
         this.orderService.updateOrder({ carId });
-    }
-    isLoading() {
-        return this.loadingService.isLoading();
     }
 };
 ChooseModelStepComponent.ctorParameters = () => [

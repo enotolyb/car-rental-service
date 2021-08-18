@@ -490,16 +490,14 @@ __webpack_require__.r(__webpack_exports__);
 
 let LoadingService = class LoadingService {
     constructor() {
-        this.loading$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
-    }
-    isLoading() {
-        return this.loading$.asObservable();
+        this.loading = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](true);
+        this.isLoading$ = this.loading.asObservable();
     }
     showLoader() {
-        this.loading$.next(true);
+        this.loading.next(true);
     }
     hideLoader() {
-        this.loading$.next(false);
+        this.loading.next(false);
     }
 };
 LoadingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

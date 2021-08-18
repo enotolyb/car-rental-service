@@ -1025,23 +1025,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       function LoadingService() {
         _classCallCheck(this, LoadingService);
 
-        this.loading$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        this.loading = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](true);
+        this.isLoading$ = this.loading.asObservable();
       }
 
       _createClass(LoadingService, [{
-        key: "isLoading",
-        value: function isLoading() {
-          return this.loading$.asObservable();
-        }
-      }, {
         key: "showLoader",
         value: function showLoader() {
-          this.loading$.next(true);
+          this.loading.next(true);
         }
       }, {
         key: "hideLoader",
         value: function hideLoader() {
-          this.loading$.next(false);
+          this.loading.next(false);
         }
       }]);
 
