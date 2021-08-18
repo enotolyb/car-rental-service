@@ -24,6 +24,8 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
 
   categoryControl = new FormControl();
 
+  isLoading$ = this.loadingService.isLoading$;
+
   constructor(
     private orderService: OrderService,
     private carService: CarService,
@@ -49,9 +51,5 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
   chooseCar(carId: number): void {
     this.selectedCarId = carId;
     this.orderService.updateOrder({ carId });
-  }
-
-  isLoading(): Observable<boolean> {
-    return this.loadingService.isLoading$;
   }
 }
