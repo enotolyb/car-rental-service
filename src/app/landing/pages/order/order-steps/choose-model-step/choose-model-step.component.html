@@ -8,6 +8,13 @@
   </app-radio-button>
 </div>
 
+<ng-container *ngIf="isLoading() | async">
+  <div class="block-loader">
+    <div class="loader"></div>
+  </div>
+</ng-container>
+
+
 <div class="block-cards">
   <app-car-card
     *ngFor="let car of cars$ | async"
@@ -16,3 +23,4 @@
     (checkCard)="chooseCar(car.id)">
   </app-car-card>
 </div>
+
