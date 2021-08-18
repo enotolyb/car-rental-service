@@ -52,6 +52,6 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
   }
 
   isLoading(): Observable<boolean> {
-    return this.loadingService.isLoading();
+    return this.loadingService.isLoading$;
   }
 }
