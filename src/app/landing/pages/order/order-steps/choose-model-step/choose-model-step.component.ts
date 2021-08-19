@@ -1,8 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { startWith, switchMap, take } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { OrderService } from '../../../../services/order.service';
+import { Car } from '../../../../models/car';
+import { CarService } from '../../../../services/car.service';
+import { categories } from './const';
+import { LoadingService } from '../../../../services/loading.service';
 
 @Component({
   selector: 'app-choose-model-step',
@@ -10,20 +14,33 @@ import { OrderService } from '../../../../services/order.service';
   styleUrls: ['./choose-model-step.component.scss'],
 })
 export class ChooseModelStepComponent implements OnInit, OnDestroy {
-  selectedCarId: number | null;
+  cars$: Observable<Car[]>;
 
-  cars = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
+  categories = categories;
+
+  selectedCarId: number | null;
 
   private destroy = new Subject();
 
-  price = new FormControl();
+  categoryControl = new FormControl();
 
-  constructor(private orderService: OrderService) {}
+  isLoading$ = this.loadingService.isLoading$;
+
+  constructor(
+    private orderService: OrderService,
+    private carService: CarService,
+    private loadingService: LoadingService,
+  ) {}
 
   ngOnInit(): void {
     this.orderService.order$.pipe(take(1)).subscribe((order) => {
       this.selectedCarId = order.carId;
     });
+
+    this.cars$ = this.categoryControl.valueChanges.pipe(
+      startWith(null),
+      switchMap((categoryId) => this.carService.getCars(categoryId)),
+    );
   }
 
   ngOnDestroy(): void {
