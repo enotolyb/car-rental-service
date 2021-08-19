@@ -1,6 +1,4 @@
 import { Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
-import { MAT_DATE_LOCALE } from '@angular/material';
-import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
 import {
   NGX_MAT_DATE_FORMATS,
   NgxMatDateAdapter,
@@ -10,6 +8,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CustomDateAdapter } from './custom-adapter.service';
 import { CUSTOM_DATE_FORMATS } from './const';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
 
 @Component({
   selector: 'app-datepicker',

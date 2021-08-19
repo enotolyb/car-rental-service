@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatAutocompleteModule, MatDatepickerModule, MatOptionModule } from '@angular/material';
 import { AgmCoreModule } from '@agm/core';
 import {
   NgxMatDatetimePickerModule,
@@ -37,6 +36,9 @@ import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-ord
 // eslint-disable-next-line
 import { ModalConfirmOrderComponent } from './components/order/modal-confirm-order/modal-confirm-order.component';
 import { MapComponent } from './components/order/map/map.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatOptionModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     MenuComponent,
