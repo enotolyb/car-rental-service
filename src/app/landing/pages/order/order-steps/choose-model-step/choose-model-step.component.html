@@ -1,13 +1,26 @@
 <div class="filter">
-  <app-radio-button [formControl]="price" value="all" name="car-filter">Все модели</app-radio-button>
-  <app-radio-button [formControl]="price" value="economic" name="car-filter">Эконом</app-radio-button>
-  <app-radio-button [formControl]="price" value="premium" name="car-filter">Премиум</app-radio-button>
+  <app-radio-button
+    *ngFor="let category of categories"
+    [formControl]="categoryControl"
+    [value]="category.id"
+    name="car-filter">
+    {{ category.name }}
+  </app-radio-button>
 </div>
+
+<ng-container *ngIf="isLoading$ | async">
+  <div class="block-loader">
+    <div class="loader"></div>
+  </div>
+</ng-container>
+
 
 <div class="block-cards">
   <app-car-card
-    *ngFor="let car of cars"
+    *ngFor="let car of cars$ | async"
     [active]="car.id === selectedCarId"
+    [car]="car"
     (checkCard)="chooseCar(car.id)">
   </app-car-card>
 </div>
+
