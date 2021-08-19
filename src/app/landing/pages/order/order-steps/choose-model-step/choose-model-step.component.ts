@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { map, startWith, switchMap, take } from 'rxjs/operators';
+import { startWith, switchMap, take } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { OrderService } from '../../../../services/order.service';
 import { Car } from '../../../../models/car';
 import { CarService } from '../../../../services/car.service';
 import { categories } from './const';
+import { LoadingService } from '../../../../services/loading.service';
 
 @Component({
   selector: 'app-choose-model-step',
@@ -23,7 +24,13 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
 
   categoryControl = new FormControl();
 
-  constructor(private orderService: OrderService, private carService: CarService) {}
+  isLoading$ = this.loadingService.isLoading$;
+
+  constructor(
+    private orderService: OrderService,
+    private carService: CarService,
+    private loadingService: LoadingService,
+  ) {}
 
   ngOnInit(): void {
     this.orderService.order$.pipe(take(1)).subscribe((order) => {
@@ -33,7 +40,6 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
     this.cars$ = this.categoryControl.valueChanges.pipe(
       startWith(null),
       switchMap((categoryId) => this.carService.getCars(categoryId)),
-      map((response) => response.data),
     );
   }
 
