@@ -689,25 +689,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
     /* harmony import */
 
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
     var AppRoutingModule = function AppRoutingModule() {
       _classCallCheck(this, AppRoutingModule);
     };
 
-    AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    AppRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [],
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forRoot([{
         path: '',
@@ -776,7 +776,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -784,7 +784,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
 
-    var AppComponent = /*#__PURE__*/function () {
+    var AppComponent =
+    /*#__PURE__*/
+    function () {
       function AppComponent() {
         _classCallCheck(this, AppComponent);
       }
@@ -808,12 +810,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return AppComponent;
     }();
 
-    AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    AppComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-root',
-      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! raw-loader!./app.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html"))["default"],
-      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./app.component.scss */
       "./src/app/app.component.scss"))["default"]]
     })], AppComponent);
@@ -850,25 +852,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/platform-browser */
-    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
     /* harmony import */
 
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
+    "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
     /* harmony import */
 
 
     var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! @angular/platform-browser/animations */
-    "./node_modules/@angular/platform-browser/fesm2015/animations.js");
+    "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
     /* harmony import */
 
 
@@ -892,7 +894,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _classCallCheck(this, AppModule);
     };
 
-    AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
+    AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"]],
       providers: [{
@@ -935,7 +937,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -949,7 +951,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! ./loading.service */
     "./src/app/landing/services/loading.service.ts");
 
-    var LoadingInterceptorService = /*#__PURE__*/function () {
+    var LoadingInterceptorService =
+    /*#__PURE__*/
+    function () {
       function LoadingInterceptorService(loadingService) {
         _classCallCheck(this, LoadingInterceptorService);
 
@@ -977,7 +981,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }];
     };
 
-    LoadingInterceptorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+    LoadingInterceptorService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
     })], LoadingInterceptorService);
     /***/
@@ -1013,7 +1017,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
@@ -1021,7 +1025,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
 
-    var LoadingService = /*#__PURE__*/function () {
+    var LoadingService =
+    /*#__PURE__*/
+    function () {
       function LoadingService() {
         _classCallCheck(this, LoadingService);
 
@@ -1044,7 +1050,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       return LoadingService;
     }();
 
-    LoadingService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+    LoadingService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
     })], LoadingService);
     /***/
@@ -1079,7 +1085,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var environment = {
       production: false,
       token: '5e25c641099b810b946c5d5b',
-      apiFactory: 'https://api-factory.simbirsoft1.com/api/db/'
+      apiFactory: 'https://api-factory.simbirsoft1.com/api/db/',
+      mapToken: '1ae0e56c-87c3-4db6-bbc0-ae461279de02',
+      domain: 'https://api-factory.simbirsoft1.com/'
     };
     /***/
   },
@@ -1112,19 +1120,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var hammerjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_1__);
+    var hammerjs__WEBPACK_IMPORTED_MODULE_1___default =
+    /*#__PURE__*/
+    __webpack_require__.n(hammerjs__WEBPACK_IMPORTED_MODULE_1__);
     /* harmony import */
 
 
     var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
     /* harmony import */
 
 
     var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/platform-browser-dynamic */
-    "./node_modules/@angular/platform-browser-dynamic/fesm2015/platform-browser-dynamic.js");
+    "./node_modules/@angular/platform-browser-dynamic/__ivy_ngcc__/fesm2015/platform-browser-dynamic.js");
     /* harmony import */
 
 
