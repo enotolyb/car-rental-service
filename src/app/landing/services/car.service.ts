@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { ApiService } from './api.service';
 import { Response } from '../models/response';
 import { Car } from '../models/car';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +17,7 @@ export class CarService {
       .get<Response<Car>>(`car`, {
         ...(categoryId ? { categoryId } : {}),
       })
-      .pipe(
-        map((data) => data.data),
-        map((list) => this.convertList(list)),
-      );
+      .pipe(map((data) => this.convertList(data.data)));
   }
 
   convertList(list) {
@@ -28,7 +26,7 @@ export class CarService {
       thumbnail: {
         ...item.thumbnail,
         path: item.thumbnail.path.includes('/files/')
-          ? 'https://api-factory.simbirsoft1.com/' + item.thumbnail.path
+          ? environment.domain + item.thumbnail.path
           : item.thumbnail.path,
       },
     }));
