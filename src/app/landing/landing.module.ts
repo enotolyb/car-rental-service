@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatAutocompleteModule, MatDatepickerModule, MatOptionModule } from '@angular/material';
 import { AgmCoreModule } from '@agm/core';
 import {
   NgxMatDatetimePickerModule,
   NgxMatTimepickerModule,
 } from '@angular-material-components/datetime-picker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatOptionModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DatepickerComponent } from './components/order/datepicker/datepicker.component';
 import { MenuComponent } from './components/general/menu/menu.component';
 // eslint-disable-next-line
 import { ApplicationBlockComponent } from './components/main/application-block/application-block.component';
@@ -31,7 +34,6 @@ import { AdditionalOptionStepComponent } from './pages/order/order-steps/additio
 import { CarCardComponent } from './components/order/car-card/car-card.component';
 import { CheckboxComponent } from './components/general/checkbox/checkbox.component';
 import { ButtonComponent } from './components/general/button/button.component';
-import { DatepickerComponent } from './components/order/datepicker/datepicker.component';
 // eslint-disable-next-line
 import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-order-step/summary-order-step.component';
 // eslint-disable-next-line

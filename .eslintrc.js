@@ -28,6 +28,7 @@ module.exports = {
         'arrow-body-style': 'off',
         'function-paren-newline': 'off',
         'no-plusplus': 'off',
+        'prefer-template': 'off',
         'space-before-function-paren': 0,
         'max-len': ['error', 100, 2, { ignoreUrls: true }],
         'no-console': 'error',
