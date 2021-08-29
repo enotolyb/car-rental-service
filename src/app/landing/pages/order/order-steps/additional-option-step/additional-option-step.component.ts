@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { map, take, takeUntil } from 'rxjs/operators';
-import { Observable, Subject } from 'rxjs';
+import { map, shareReplay, take, takeUntil } from 'rxjs/operators';
+import { combineLatest, Observable, Subject } from 'rxjs';
 import { OrderService } from '../../../../services/order.service';
 import { TariffsService } from '../../../../services/tariffs.service';
 import { Tariff } from '../../../../models/tariff';
@@ -12,9 +12,9 @@ import { Tariff } from '../../../../models/tariff';
   styleUrls: ['./additional-option-step.component.scss'],
 })
 export class AdditionalOptionStepComponent implements OnInit, OnDestroy {
-  tariffs$: Observable<Tariff[]>;
+  tariffs$: Observable<Tariff[]> = this.tariffsService.getRates().pipe(shareReplay(1));
 
-  colors$: Observable<string[]>;
+  colors$: Observable<string[]> = this.orderService.order$.pipe(map((order) => order.carId.colors));
 
   private destroy = new Subject();
 
@@ -31,25 +31,26 @@ export class AdditionalOptionStepComponent implements OnInit, OnDestroy {
   constructor(private orderService: OrderService, private tariffsService: TariffsService) {}
 
   ngOnInit(): void {
-    this.formControl.valueChanges.pipe(takeUntil(this.destroy)).subscribe((form) => {
-      this.orderService.updateOrder(form);
-    });
+    combineLatest([this.formControl.valueChanges, this.tariffs$])
+      .pipe(takeUntil(this.destroy))
+      .subscribe(([form, tariffs]) => {
+        this.orderService.updateOrder({
+          ...form,
+          rateId: tariffs.find((it) => it.id === form.rateId),
+        });
+      });
 
     this.orderService.order$.pipe(take(1)).subscribe((order) => {
       this.formControl.patchValue({
         color: order.color,
         dateFrom: order.dateFrom,
         dateTo: order.dateTo,
-        rateId: order.rateId,
+        rateId: order.rateId?.id,
         isFullTank: order.isFullTank,
         isNeedChildChair: order.isNeedChildChair,
         isRightWheel: order.isRightWheel,
       });
     });
-
-    this.tariffs$ = this.tariffsService.getRates();
-
-    this.colors$ = this.orderService.order$.pipe(map((order) => order.carId.colors));
   }
 
   ngOnDestroy(): void {

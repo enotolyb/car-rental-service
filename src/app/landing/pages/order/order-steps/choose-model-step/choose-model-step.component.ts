@@ -14,13 +14,13 @@ import { LoadingService } from '../../../../services/loading.service';
   styleUrls: ['./choose-model-step.component.scss'],
 })
 export class ChooseModelStepComponent implements OnInit, OnDestroy {
+  private destroy = new Subject();
+
   cars$: Observable<Car[]>;
 
   categories = categories;
 
   selectedCarId: number | null;
-
-  private destroy = new Subject();
 
   categoryControl = new FormControl();
 
@@ -34,7 +34,7 @@ export class ChooseModelStepComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.orderService.order$.pipe(take(1)).subscribe((order) => {
-      this.selectedCarId = order.carId.id;
+      this.selectedCarId = order.carId?.id;
     });
 
     this.cars$ = this.categoryControl.valueChanges.pipe(

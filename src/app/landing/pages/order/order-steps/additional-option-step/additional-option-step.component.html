@@ -38,7 +38,7 @@
       <app-radio-button
         *ngFor="let tariff of tariffs$ | async"
         formControlName="rateId"
-        [value]="tariff"
+        [value]="tariff.id"
         name="rateId"
       >
         {{ tariff.rateTypeId.name }}, {{ tariff.price }} ₽/{{tariff.rateTypeId.unit}}

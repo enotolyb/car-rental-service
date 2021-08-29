@@ -14,23 +14,22 @@
         <div class="detail__item_name">Модель</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>{{ order.carId.name }}</div>
+          {{ order.carId.name }}
         </div>
       </div>
       <div class="detail__item" *ngIf="order.color">
         <div class="detail__item_name">Цвет</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>{{ order.color }}</div>
+          {{ order.color }}
         </div>
       </div>
       <div class="detail__item" *ngIf="order.rateId">
         <div class="detail__item_name">Длительность аренды</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>
             {{ calcUnit(order) }}
-            <ng-container [ngSwitch]="order.rateId.rateTypeId.unit">
+            <ng-container [ngSwitch]="order.rateId?.rateTypeId.unit">
               <ng-container *ngSwitchCase="tariffUnit.minutes">
                 мин
               </ng-container>
@@ -44,47 +43,46 @@
                 мес
               </ng-container>
             </ng-container>
-          </div>
         </div>
       </div>
-      <div class="detail__item" *ngIf="order.rateId.rateTypeId.name">
+      <div class="detail__item" *ngIf="order.rateId?.rateTypeId.name">
         <div class="detail__item_name">Тариф</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>{{ order.rateId.rateTypeId.name }}</div>
+          {{ order.rateId.rateTypeId.name }}
         </div>
       </div>
       <div class="detail__item" *ngIf="order.isFullTank">
         <div class="detail__item_name">Полный бак</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>Да</div>
+          Да
         </div>
       </div>
       <div class="detail__item" *ngIf="order.isNeedChildChair">
         <div class="detail__item_name">Детское кресло</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>Да</div>
+          Да
         </div>
       </div>
       <div class="detail__item" *ngIf="order.isRightWheel">
         <div class="detail__item_name">Правый руль</div>
         <div class="detail__item_points"></div>
         <div class="detail__item_choose">
-          <div>Да</div>
+          Да
         </div>
       </div>
     </ng-container>
     <div class="price" *ngIf="price$ | async as price">
       <div class="price__title">Цена:</div>
       <div class="price__sum">
-        <ng-container *ngIf="price.priceMin">
+        <ng-container *ngIf="price.priceMin; else priceDefault">
           От {{ price.priceMin }} до {{ price.price }}
         </ng-container>
-        <ng-container *ngIf="!price.priceMin">
+        <ng-template #priceDefault>
           {{ price.price }}
-        </ng-container>
+        </ng-template>
       </div>
     </div>
     <app-button
