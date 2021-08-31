@@ -40,8 +40,10 @@ export class OrderService implements OnDestroy {
       // todo load order
     } else {
       this.order.next({
-        cityId: 'Ульяновск',
-        pointId: 'Наримова 42',
+        cityId: {
+          name: 'Ульяновск',
+          id: '5ea07ad3099b810b946c6254',
+        },
       } as Order);
     }
   }
