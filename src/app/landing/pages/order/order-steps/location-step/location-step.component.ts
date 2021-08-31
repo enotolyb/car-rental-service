@@ -105,19 +105,12 @@ export class LocationStepComponent implements OnInit, OnDestroy {
       this.form.get('cityId').valueChanges.pipe(startWith('')),
       this.locationService.cities$,
     ]).pipe(
-      map(([city, cities]) => {
-        if (typeof city === 'string') {
-          const search = city.toLowerCase();
-          return cities.filter((it) => it.name.toLowerCase().includes(search));
-        }
-
-        return cities;
-      }),
+      map(([city, cities]) => this.filterBySearchValue<City>(cities, city)),
     );
   }
 
   getPoints(): Observable<Point[]> {
-    const allPoints$ = this.form.get('cityId').valueChanges.pipe(
+    const allPoints$: Observable<Point[]> = this.form.get('cityId').valueChanges.pipe(
       startWith(this.form.getRawValue().cityId),
       switchMap((cityId) => (cityId?.id ? this.locationService.getPoints(cityId.id) : [])),
     );
@@ -126,21 +119,22 @@ export class LocationStepComponent implements OnInit, OnDestroy {
       this.form.get('pointId').valueChanges.pipe(startWith('')),
       allPoints$,
     ]).pipe(
-      map(([point, points]) => {
-        if (typeof point === 'string') {
-          const search = point.toLowerCase();
-          return points.filter((it) => it.name.toLowerCase().includes(search));
-        }
-
-        return points;
-      }),
+      map(([point, points]) => this.filterBySearchValue<Point>(points, point)),
     );
   }
 
-  geocodeForPoint(point): Observable<MarkerPoint | null> {
+  geocodeForPoint(point: Point): Observable<MarkerPoint | null> {
     return this.locationService.geocode(
       point.id,
       `${point.cityId ? point.cityId.name : ''} ${point.address}`,
     );
+  }
+
+  private filterBySearchValue<T extends { name: string }>(items: T[], item?: string): T[] {
+    if (typeof item === 'string') {
+      const search = item.toLowerCase();
+      return items.filter((it) => it.name.toLowerCase().includes(search));
+    }
+    return items;
   }
 }
