@@ -18,6 +18,6 @@ export interface Car {
   priceMin: number;
   number: number;
   tank: number;
-  colors: [string];
+  colors: [];
   id: number;
 }

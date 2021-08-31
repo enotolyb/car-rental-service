@@ -4,7 +4,7 @@
     <div class="card-car__price">{{ car.priceMin }} - {{ car.priceMax }}</div>
   </div>
   <div class="card-car__img">
-    <img src="{{ car.thumbnail.path }}">
+    <img src="{{ car.thumbnail.path }}" appImgFallback="./assets/img/order/none-photo.jpg">
   </div>
 </div>
 
