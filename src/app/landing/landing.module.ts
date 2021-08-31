@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatDatepickerModule } from '@angular/material';
+import { AgmCoreModule } from '@agm/core';
 import {
+  NGX_MAT_DATE_FORMATS,
+  NgxMatDateAdapter,
   NgxMatDatetimePickerModule,
   NgxMatTimepickerModule,
 } from '@angular-material-components/datetime-picker';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MAT_DATE_LOCALE, MatOptionModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DatepickerComponent } from './components/order/datepicker/datepicker.component';
 import { MenuComponent } from './components/general/menu/menu.component';
 // eslint-disable-next-line
 import { ApplicationBlockComponent } from './components/main/application-block/application-block.component';
@@ -30,11 +36,15 @@ import { AdditionalOptionStepComponent } from './pages/order/order-steps/additio
 import { CarCardComponent } from './components/order/car-card/car-card.component';
 import { CheckboxComponent } from './components/general/checkbox/checkbox.component';
 import { ButtonComponent } from './components/general/button/button.component';
-import { DatepickerComponent } from './components/order/datepicker/datepicker.component';
 // eslint-disable-next-line
 import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-order-step/summary-order-step.component';
 // eslint-disable-next-line
 import { ModalConfirmOrderComponent } from './components/order/modal-confirm-order/modal-confirm-order.component';
+import { MapComponent } from './components/order/map/map.component';
+import { ImgFallbackDirective } from './directivs/img-fallback.directive';
+import { CustomDateAdapter } from './components/order/datepicker/custom-adapter.service';
+import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
+import { CUSTOM_DATE_FORMATS } from './components/order/datepicker/const';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -59,6 +69,8 @@ import { ModalConfirmOrderComponent } from './components/order/modal-confirm-ord
     DatepickerComponent,
     SummaryOrderStepComponent,
     ModalConfirmOrderComponent,
+    MapComponent,
+    ImgFallbackDirective,
   ],
   imports: [
     CommonModule,
@@ -68,6 +80,19 @@ import { ModalConfirmOrderComponent } from './components/order/modal-confirm-ord
     MatDatepickerModule,
     NgxMatTimepickerModule,
     NgxMatDatetimePickerModule,
+    MatAutocompleteModule,
+    MatOptionModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAdKEF25ExW7hp_ZudPLxpxXzD78tMfcyg',
+    }),
+  ],
+  providers: [
+    {
+      provide: NgxMatDateAdapter,
+      useClass: CustomDateAdapter,
+      deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
   ],
 })
 export class LandingModule {}

@@ -1,5 +1,6 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-input',
@@ -16,6 +17,8 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class InputComponent implements OnInit, ControlValueAccessor {
   @Input() placeholder: string;
+
+  @Input() matAutocompleteRef: MatAutocomplete;
 
   inputControl = new FormControl();
 

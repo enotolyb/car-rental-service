@@ -1,12 +1,17 @@
+import { City } from './city';
+import { Point } from './point';
+import { Car } from './car';
+import { Tariff } from './tariff';
+
 export interface Order {
   orderStatusId: number;
-  cityId: string; // todo change to number
-  pointId: string; // todo change to number
-  carId: number;
+  cityId: City;
+  pointId: Point;
+  carId: Car;
   color: string;
   dateFrom: number;
   dateTo: number;
-  rateId: number;
+  rateId: Tariff;
   price: number;
   isFullTank: boolean;
   isNeedChildChair: boolean;
@@ -14,7 +19,7 @@ export interface Order {
 }
 
 export interface OrderPrice {
-  priceTotal?: number;
+  price?: number;
   priceMin?: number;
 }
 

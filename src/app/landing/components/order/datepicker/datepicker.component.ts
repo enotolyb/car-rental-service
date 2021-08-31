@@ -1,27 +1,13 @@
 import { Component, forwardRef, OnDestroy, OnInit } from '@angular/core';
-import { MAT_DATE_LOCALE } from '@angular/material';
-import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
-import {
-  NGX_MAT_DATE_FORMATS,
-  NgxMatDateAdapter,
-} from '@angular-material-components/datetime-picker';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { CustomDateAdapter } from './custom-adapter.service';
-import { CUSTOM_DATE_FORMATS } from './const';
 
 @Component({
   selector: 'app-datepicker',
   templateUrl: './datepicker.component.html',
   styleUrls: ['./datepicker.component.scss'],
   providers: [
-    {
-      provide: NgxMatDateAdapter,
-      useClass: CustomDateAdapter,
-      deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS],
-    },
-    { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
     {
       provide: NG_VALUE_ACCESSOR,
       // eslint-disable-next-line

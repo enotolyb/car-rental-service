@@ -91,7 +91,7 @@ export class OrderNavigationService implements OnDestroy {
     const order = this.orderService.order.getValue();
     const checkLocation = () => !!(order.cityId && order.pointId);
     const checkCar = () => !!order.carId;
-    const checkOption = () => !!(order.color && order.dateFrom && order.dateTo && order.rateId);
+    const checkOption = () => !!(order.dateFrom && order.dateTo && order.rateId);
 
     switch (step) {
       case OrderStep.location:
