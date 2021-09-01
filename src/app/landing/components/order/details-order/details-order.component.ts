@@ -41,7 +41,7 @@ export class DetailsOrderComponent {
       case OrderStep.summary:
         return 'Заказать';
       default:
-        return '';
+        return 'Отменить заказ';
     }
   }
 
@@ -51,5 +51,9 @@ export class DetailsOrderComponent {
 
   calcUnit(order: Order): number {
     return this.orderService.calcUnit(order);
+  }
+
+  isComplete() {
+    return !this.activeStep;
   }
 }

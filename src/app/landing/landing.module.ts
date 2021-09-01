@@ -11,6 +11,7 @@ import {
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MAT_DATE_LOCALE, MatOptionModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
 import { DatepickerComponent } from './components/order/datepicker/datepicker.component';
 import { MenuComponent } from './components/general/menu/menu.component';
 // eslint-disable-next-line
@@ -43,8 +44,10 @@ import { ModalConfirmOrderComponent } from './components/order/modal-confirm-ord
 import { MapComponent } from './components/order/map/map.component';
 import { ImgFallbackDirective } from './directivs/img-fallback.directive';
 import { CustomDateAdapter } from './components/order/datepicker/custom-adapter.service';
-import { NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
 import { CUSTOM_DATE_FORMATS } from './components/order/datepicker/const';
+import { ConfirmPageComponent } from './pages/order/confirm-page/confirm-page.component';
+// eslint-disable-next-line
+import { OrderCompleteNumberComponent } from './components/order/order-complete-number/order-complete-number.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -71,6 +74,8 @@ import { CUSTOM_DATE_FORMATS } from './components/order/datepicker/const';
     ModalConfirmOrderComponent,
     MapComponent,
     ImgFallbackDirective,
+    ConfirmPageComponent,
+    OrderCompleteNumberComponent,
   ],
   imports: [
     CommonModule,

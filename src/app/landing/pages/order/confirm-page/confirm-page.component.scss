@@ -1,0 +1,18 @@
+@import '../../../styles/media';
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+@include tablet() {
+  .title {
+    text-align: center;
+  }
+}
+
+@include mobile() {
+  .title {
+    text-align: center;
+  }
+}

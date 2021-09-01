@@ -104,9 +104,7 @@ export class LocationStepComponent implements OnInit, OnDestroy {
     return combineLatest([
       this.form.get('cityId').valueChanges.pipe(startWith('')),
       this.locationService.cities$,
-    ]).pipe(
-      map(([city, cities]) => this.filterBySearchValue<City>(cities, city)),
-    );
+    ]).pipe(map(([city, cities]) => this.filterBySearchValue<City>(cities, city)));
   }
 
   getPoints(): Observable<Point[]> {
@@ -118,9 +116,7 @@ export class LocationStepComponent implements OnInit, OnDestroy {
     return combineLatest([
       this.form.get('pointId').valueChanges.pipe(startWith('')),
       allPoints$,
-    ]).pipe(
-      map(([point, points]) => this.filterBySearchValue<Point>(points, point)),
-    );
+    ]).pipe(map(([point, points]) => this.filterBySearchValue<Point>(points, point)));
   }
 
   geocodeForPoint(point: Point): Observable<MarkerPoint | null> {
