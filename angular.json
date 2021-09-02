@@ -31,7 +31,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "./",
+              "baseHref": "/car-rental-service/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
