@@ -13,6 +13,7 @@ import { SummaryOrderStepComponent } from './pages/order/order-steps/summary-ord
 // eslint-disable-next-line
 import { ModalConfirmOrderComponent } from './components/order/modal-confirm-order/modal-confirm-order.component';
 import { OrderStep } from './models/order';
+import { ConfirmPageComponent } from './pages/order/confirm-page/confirm-page.component';
 
 @NgModule({
   declarations: [],
@@ -59,6 +60,10 @@ import { OrderStep } from './models/order';
                 component: ModalConfirmOrderComponent,
               },
             ],
+          },
+          {
+            path: 'confirm',
+            component: ConfirmPageComponent,
           },
         ],
       },

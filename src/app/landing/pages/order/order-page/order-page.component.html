@@ -4,7 +4,10 @@
     <div class="header">
       <app-header></app-header>
     </div>
-    <app-breadcrumb></app-breadcrumb>
+    <app-breadcrumb *ngIf="getActiveStep(); else orderNumber"></app-breadcrumb>
+    <ng-template #orderNumber>
+      <app-order-complete-number></app-order-complete-number>
+    </ng-template>
     <div class="content">
       <div class="content__step">
         <div class="content__step_left">

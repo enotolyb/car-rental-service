@@ -41,15 +41,22 @@ export class DetailsOrderComponent {
       case OrderStep.summary:
         return 'Заказать';
       default:
-        return '';
+        return 'Отменить заказ';
     }
-  }
-
-  isDisabledButton(): boolean {
-    return !this.orderNavigationService.checkIsCompleteStep(this.activeStep);
   }
 
   calcUnit(order: Order): number {
     return this.orderService.calcUnit(order);
+  }
+
+  getThemeButton(): 'red' | 'green' | 'blocked' {
+    if (!this.activeStep) {
+      return 'red';
+    }
+    if (!this.orderNavigationService.checkIsCompleteStep(this.activeStep)) {
+      return 'blocked';
+    }
+
+    return 'green';
   }
 }
