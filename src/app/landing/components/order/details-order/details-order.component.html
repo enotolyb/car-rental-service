@@ -86,7 +86,7 @@
       </div>
     </div>
     <app-button
-      [theme]="isDisabledButton() ? 'blocked' : (isComplete() ? 'red' : 'green')"
+      [theme]="getThemeButton()"
       (click)="goToNextStep()"
     >
       {{ titleButton() }}

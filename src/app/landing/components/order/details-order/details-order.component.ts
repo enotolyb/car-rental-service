@@ -45,15 +45,18 @@ export class DetailsOrderComponent {
     }
   }
 
-  isDisabledButton(): boolean {
-    return !this.orderNavigationService.checkIsCompleteStep(this.activeStep);
-  }
-
   calcUnit(order: Order): number {
     return this.orderService.calcUnit(order);
   }
 
-  isComplete() {
-    return !this.activeStep;
+  getThemeButton(): 'red' | 'green' | 'blocked' {
+    if (!this.activeStep) {
+      return 'red';
+    }
+    if (!this.orderNavigationService.checkIsCompleteStep(this.activeStep)) {
+      return 'blocked';
+    }
+
+    return 'green';
   }
 }
