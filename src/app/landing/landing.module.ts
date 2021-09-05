@@ -48,6 +48,8 @@ import { CUSTOM_DATE_FORMATS } from './components/order/datepicker/const';
 import { ConfirmPageComponent } from './pages/order/confirm-page/confirm-page.component';
 // eslint-disable-next-line
 import { OrderCompleteNumberComponent } from './components/order/order-complete-number/order-complete-number.component';
+// eslint-disable-next-line
+import { ModalOrderCancelComponent } from './components/order/modal-order-cancell/modal-order-cancel.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -76,6 +78,7 @@ import { OrderCompleteNumberComponent } from './components/order/order-complete-
     ImgFallbackDirective,
     ConfirmPageComponent,
     OrderCompleteNumberComponent,
+    ModalOrderCancelComponent,
   ],
   imports: [
     CommonModule,

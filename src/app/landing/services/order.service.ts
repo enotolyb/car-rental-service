@@ -118,6 +118,22 @@ export class OrderService implements OnDestroy {
       .pipe(map((data) => data.data));
   }
 
+  cancelOrder(): Observable<void> {
+    const order = this.order.getValue();
+    return this.apiService
+      .put<ResponseSingle<Order>>(`order/${order.id}`, {
+        ...order,
+        orderStatusId: ORDER_STATUS[3],
+      })
+      .pipe(
+        map(() => {
+          delete order.id;
+          delete order.orderStatusId;
+          this.order.next(order);
+        }),
+      );
+  }
+
   private calcDate(order: Order): number {
     if (!order.dateFrom || !order.dateTo) {
       return 1;

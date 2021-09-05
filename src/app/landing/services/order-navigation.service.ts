@@ -43,7 +43,10 @@ export class OrderNavigationService implements OnDestroy {
         this.navigateToStep(OrderStep.summary);
         break;
       case OrderStep.summary:
-        this.navigateToStep(OrderStep.confirm);
+        this.navigateToStep(OrderStep.confirmModal);
+        break;
+      case OrderStep.confirm:
+        this.navigateToStep(OrderStep.cancelModal);
         break;
       default:
         break;
@@ -56,7 +59,8 @@ export class OrderNavigationService implements OnDestroy {
       [OrderStep.model]: 'model',
       [OrderStep.option]: 'option',
       [OrderStep.summary]: 'summary',
-      [OrderStep.confirm]: 'summary/confirm',
+      [OrderStep.confirmModal]: 'summary/confirm',
+      [OrderStep.cancelModal]: 'confirm/cancel',
     };
 
     if (!this.checkAvailableNavigateToState(orderStep)) {
