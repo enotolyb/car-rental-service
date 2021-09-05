@@ -4,7 +4,11 @@ import { Car } from './car';
 import { Tariff } from './tariff';
 
 export interface Order {
-  orderStatusId: number;
+  orderStatusId: {
+    name: string;
+    id: string;
+  };
+  id: string;
   cityId: City;
   pointId: Point;
   carId: Car;
