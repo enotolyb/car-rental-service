@@ -5,6 +5,7 @@ import { switchMap, takeUntil } from 'rxjs/operators';
 import { OrderService } from '../../../services/order.service';
 import { OrderNavigationService } from '../../../services/order-navigation.service';
 import { OrderStep } from '../../../models/order';
+import { NEW_ORDER_ID } from '../../../services/const';
 
 @Component({
   selector: 'app-order-page',
@@ -24,10 +25,14 @@ export class OrderPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.activeRoute.params
       .pipe(
-        switchMap((param) => this.orderService.initOrder(param.orderId)),
+        switchMap(({ orderId }) =>
+          orderId === NEW_ORDER_ID
+            ? this.orderService.getNewOrder()
+            : this.orderService.getOrderById(orderId),
+        ),
         takeUntil(this.destroy),
       )
-      .subscribe();
+      .subscribe((order) => this.orderService.setOrder(order));
   }
 
   ngOnDestroy(): void {
