@@ -8,7 +8,7 @@ import {
   differenceInMinutes,
 } from 'date-fns';
 import { TariffUnit } from '../models/tariff';
-import { NEW_ORDER_ID, ORDER_STATUS } from './const';
+import { ORDER_STATUS } from './const';
 import { Order, OrderPrice } from '../models/order';
 import { ApiService } from './api.service';
 import { ResponseSingle } from '../models/response';
@@ -42,19 +42,18 @@ export class OrderService implements OnDestroy {
     localStorage.setItem('newOrder', JSON.stringify(order));
   }
 
-  initOrder(orderId: string): Observable<void> {
-    if (orderId !== NEW_ORDER_ID) {
-      return this.apiService.get<ResponseSingle<Order>>(`order/${orderId}`).pipe(
-        map((response) => {
-          const order = {
-            ...response.data,
-            carId: this.carService.convertCar(response.data.carId),
-          };
-          this.order.next(order);
-        }),
-      );
-    }
+  getOrderById(orderId: string): Observable<Order> {
+    return this.apiService.get<ResponseSingle<Order>>(`order/${orderId}`).pipe(
+      map((response) => {
+        return {
+          ...response.data,
+          carId: this.carService.convertCar(response.data.carId),
+        };
+      }),
+    );
+  }
 
+  getNewOrder(): Observable<Order> {
     let order: Order;
     try {
       if (localStorage.getItem('newOrder')) {
@@ -71,9 +70,11 @@ export class OrderService implements OnDestroy {
       } as Order;
     }
 
-    this.order.next(order);
+    return of(order);
+  }
 
-    return of();
+  setOrder(order: Order): void {
+    this.order.next(order);
   }
 
   calcPrice(order: Order): OrderPrice {
