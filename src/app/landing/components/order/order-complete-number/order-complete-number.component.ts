@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { OrderService } from '../../../services/order.service';
@@ -8,12 +8,8 @@ import { OrderService } from '../../../services/order.service';
   templateUrl: './order-complete-number.component.html',
   styleUrls: ['./order-complete-number.component.scss'],
 })
-export class OrderCompleteNumberComponent implements OnInit {
-  orderId$: Observable<string>;
+export class OrderCompleteNumberComponent {
+  orderId$: Observable<string> = this.orderService.order$.pipe(map((order) => order.id));
 
   constructor(private orderService: OrderService) {}
-
-  ngOnInit(): void {
-    this.orderId$ = this.orderService.order$.pipe(map((order) => order.id));
-  }
 }

@@ -50,6 +50,7 @@ import { ConfirmPageComponent } from './pages/order/confirm-page/confirm-page.co
 import { OrderCompleteNumberComponent } from './components/order/order-complete-number/order-complete-number.component';
 // eslint-disable-next-line
 import { ModalOrderCancelComponent } from './components/order/modal-order-cancell/modal-order-cancel.component';
+import { ModalWindowComponent } from './components/order/modal-window/modal-window.component';
 @NgModule({
   declarations: [
     MenuComponent,
@@ -79,6 +80,7 @@ import { ModalOrderCancelComponent } from './components/order/modal-order-cancel
     ConfirmPageComponent,
     OrderCompleteNumberComponent,
     ModalOrderCancelComponent,
+    ModalWindowComponent,
   ],
   imports: [
     CommonModule,

@@ -7,7 +7,6 @@ import { OrderService } from '../../../services/order.service';
 @Component({
   selector: 'app-modal-confirm-order',
   templateUrl: './modal-confirm-order.component.html',
-  styleUrls: ['./modal-confirm-order.component.scss'],
 })
 export class ModalConfirmOrderComponent implements OnDestroy {
   private destroy = new Subject();

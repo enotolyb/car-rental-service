@@ -7,7 +7,6 @@ import { OrderService } from '../../../services/order.service';
 @Component({
   selector: 'app-modal-order-cancell',
   templateUrl: './modal-order-cancel.component.html',
-  styleUrls: ['./modal-order-cancel.component.scss'],
 })
 export class ModalOrderCancelComponent implements OnDestroy {
   private destroy = new Subject();
