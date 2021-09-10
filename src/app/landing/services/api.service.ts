@@ -32,4 +32,12 @@ export class ApiService {
       },
     });
   }
+
+  put<T>(url: string, body?: any | null): Observable<T> {
+    return this.http.put<T>(environment.apiFactory + url, body, {
+      headers: {
+        'X-Api-Factory-Application-Id': environment.token,
+      },
+    });
+  }
 }

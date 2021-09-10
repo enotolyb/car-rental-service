@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import {
   differenceInCalendarDays,
   differenceInCalendarMonths,
@@ -117,6 +117,25 @@ export class OrderService implements OnDestroy {
         orderStatusId: ORDER_STATUS[0],
       })
       .pipe(map((data) => data.data));
+  }
+
+  cancelOrder(): Observable<Order> {
+    const order = this.order.getValue();
+    return this.apiService
+      .put<ResponseSingle<Order>>(`order/${order.id}`, {
+        ...order,
+        orderStatusId: ORDER_STATUS[3],
+      })
+      .pipe(
+        map((response) => {
+          delete response.data.id;
+          delete response.data.orderStatusId;
+          return response.data;
+        }),
+        tap(() => {
+          this.order.next(order);
+        }),
+      );
   }
 
   private calcDate(order: Order): number {

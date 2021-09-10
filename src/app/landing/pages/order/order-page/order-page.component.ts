@@ -40,7 +40,7 @@ export class OrderPageComponent implements OnInit, OnDestroy {
     this.destroy.complete();
   }
 
-  getActiveStep(): OrderStep | undefined {
-    return this.orderNavigationService.activeStep;
+  isCompleteOrder(): boolean {
+    return this.orderNavigationService.activeStep === OrderStep.confirm;
   }
 }

@@ -1,7 +1,6 @@
-<div class="confirm-order">
-  <div class="confirm-order__title">Подтвердить заказ</div>
-  <div class="confirm-order__button">
-    <app-button theme="green" size="slider" class="button" (click)="createOrder()">Подтвердить</app-button>
-    <app-button routerLink="../" theme="red" size="slider">Вернуться</app-button>
-  </div>
-</div>
+<app-modal-window title="Подтверждение заказа">
+  <app-button theme="green" size="slider" class="button" (click)="createOrder()">Подтвердить</app-button>
+  <app-button routerLink="../" theme="red" size="slider">Вернуться</app-button>
+</app-modal-window>
+
+
