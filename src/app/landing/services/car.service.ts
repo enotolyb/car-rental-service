@@ -20,15 +20,19 @@ export class CarService {
       .pipe(map((data) => this.convertList(data.data)));
   }
 
-  convertList(list) {
-    return list.map((item) => ({
-      ...item,
+  convertList(list): Car[] {
+    return list.map((item) => this.convertCar(item));
+  }
+
+  convertCar(car: Car): Car {
+    return {
+      ...car,
       thumbnail: {
-        ...item.thumbnail,
-        path: item.thumbnail.path.includes('/files/')
-          ? environment.domain + item.thumbnail.path
-          : item.thumbnail.path,
+        ...car.thumbnail,
+        path: car.thumbnail.path.includes('/files/')
+          ? environment.domain + car.thumbnail.path
+          : car.thumbnail.path,
       },
-    }));
+    };
   }
 }

@@ -1,14 +1,14 @@
 import { Component, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { OrderService } from '../../../services/order.service';
 
 @Component({
-  selector: 'app-modal-confirm-order',
-  templateUrl: './modal-confirm-order.component.html',
+  selector: 'app-modal-order-cancell',
+  templateUrl: './modal-order-cancel.component.html',
 })
-export class ModalConfirmOrderComponent implements OnDestroy {
+export class ModalOrderCancelComponent implements OnDestroy {
   private destroy = new Subject();
 
   constructor(private orderService: OrderService, private router: Router) {}
@@ -18,10 +18,10 @@ export class ModalConfirmOrderComponent implements OnDestroy {
     this.destroy.complete();
   }
 
-  createOrder() {
+  cancelOrder() {
     this.orderService
-      .createOrder()
+      .cancelOrder()
       .pipe(takeUntil(this.destroy))
-      .subscribe((order) => this.router.navigate([`/order/${order.id}/confirm`]));
+      .subscribe(() => this.router.navigate([`/order/new/summary`]));
   }
 }

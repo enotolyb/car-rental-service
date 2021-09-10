@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import {
   differenceInCalendarDays,
   differenceInCalendarMonths,
@@ -8,8 +8,11 @@ import {
   differenceInMinutes,
 } from 'date-fns';
 import { TariffUnit } from '../models/tariff';
-import { NEW_ORDER_ID } from './const';
+import { ORDER_STATUS } from './const';
 import { Order, OrderPrice } from '../models/order';
+import { ApiService } from './api.service';
+import { ResponseSingle } from '../models/response';
+import { CarService } from './car.service';
 
 @Injectable()
 export class OrderService implements OnDestroy {
@@ -21,7 +24,7 @@ export class OrderService implements OnDestroy {
 
   private destroy = new Subject();
 
-  constructor() {
+  constructor(private apiService: ApiService, private carService: CarService) {
     this.orderPrice$ = this.order$.pipe(map((order) => this.calcPrice(order)));
   }
 
@@ -39,28 +42,39 @@ export class OrderService implements OnDestroy {
     localStorage.setItem('newOrder', JSON.stringify(order));
   }
 
-  initOrder(orderId: string): void {
-    if (orderId !== NEW_ORDER_ID) {
-      // todo load order
-    } else {
-      let order: Order;
-      try {
-        if (localStorage.getItem('newOrder')) {
-          order = JSON.parse(localStorage.getItem('newOrder')) as Order;
-        }
-      } catch (e) {}
+  getOrderById(orderId: string): Observable<Order> {
+    return this.apiService.get<ResponseSingle<Order>>(`order/${orderId}`).pipe(
+      map((response) => {
+        return {
+          ...response.data,
+          carId: this.carService.convertCar(response.data.carId),
+        };
+      }),
+    );
+  }
 
-      if (!order) {
-        order = {
-          cityId: {
-            name: 'Ульяновск',
-            id: '5ea07ad3099b810b946c6254',
-          },
-        } as Order;
+  getNewOrder(): Observable<Order> {
+    let order: Order;
+    try {
+      if (localStorage.getItem('newOrder')) {
+        order = JSON.parse(localStorage.getItem('newOrder')) as Order;
       }
+    } catch (e) {}
 
-      this.order.next(order);
+    if (!order) {
+      order = {
+        cityId: {
+          name: 'Ульяновск',
+          id: '5ea07ad3099b810b946c6254',
+        },
+      } as Order;
     }
+
+    return of(order);
+  }
+
+  setOrder(order: Order): void {
+    this.order.next(order);
   }
 
   calcPrice(order: Order): OrderPrice {
@@ -94,6 +108,34 @@ export class OrderService implements OnDestroy {
     const unit = this.calcDate(order);
 
     return unit > 0 ? unit : 1;
+  }
+
+  createOrder(): Observable<Order> {
+    return this.apiService
+      .post<ResponseSingle<Order>>('order', {
+        ...this.order.getValue(),
+        orderStatusId: ORDER_STATUS[0],
+      })
+      .pipe(map((data) => data.data));
+  }
+
+  cancelOrder(): Observable<Order> {
+    const order = this.order.getValue();
+    return this.apiService
+      .put<ResponseSingle<Order>>(`order/${order.id}`, {
+        ...order,
+        orderStatusId: ORDER_STATUS[3],
+      })
+      .pipe(
+        map((response) => {
+          delete response.data.id;
+          delete response.data.orderStatusId;
+          return response.data;
+        }),
+        tap(() => {
+          this.order.next(order);
+        }),
+      );
   }
 
   private calcDate(order: Order): number {

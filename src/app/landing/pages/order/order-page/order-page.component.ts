@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { switchMap, takeUntil } from 'rxjs/operators';
 import { OrderService } from '../../../services/order.service';
 import { OrderNavigationService } from '../../../services/order-navigation.service';
 import { OrderStep } from '../../../models/order';
+import { NEW_ORDER_ID } from '../../../services/const';
 
 @Component({
   selector: 'app-order-page',
@@ -23,8 +24,15 @@ export class OrderPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activeRoute.params
-      .pipe(takeUntil(this.destroy))
-      .subscribe((param) => this.orderService.initOrder(param.orderId));
+      .pipe(
+        switchMap(({ orderId }) =>
+          orderId === NEW_ORDER_ID
+            ? this.orderService.getNewOrder()
+            : this.orderService.getOrderById(orderId),
+        ),
+        takeUntil(this.destroy),
+      )
+      .subscribe((order) => this.orderService.setOrder(order));
   }
 
   ngOnDestroy(): void {
@@ -32,7 +40,7 @@ export class OrderPageComponent implements OnInit, OnDestroy {
     this.destroy.complete();
   }
 
-  getActiveStep(): OrderStep | undefined {
-    return this.orderNavigationService.activeStep;
+  isCompleteOrder(): boolean {
+    return this.orderNavigationService.activeStep === OrderStep.confirm;
   }
 }
