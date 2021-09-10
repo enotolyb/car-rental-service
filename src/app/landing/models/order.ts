@@ -4,7 +4,11 @@ import { Car } from './car';
 import { Tariff } from './tariff';
 
 export interface Order {
-  orderStatusId: number;
+  orderStatusId: {
+    name: string;
+    id: string;
+  };
+  id: string;
   cityId: City;
   pointId: Point;
   carId: Car;
@@ -28,5 +32,7 @@ export enum OrderStep {
   model = 'model',
   option = 'option',
   summary = 'summary',
-  confirm = 'summary/confirm',
+  confirmModal = 'summary/confirm',
+  confirm = 'confirm',
+  cancelModal = 'confirm/cancel',
 }

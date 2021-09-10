@@ -50,7 +50,7 @@ export class DetailsOrderComponent {
   }
 
   getThemeButton(): 'red' | 'green' | 'blocked' {
-    if (!this.activeStep) {
+    if (this.activeStep === OrderStep.confirm) {
       return 'red';
     }
     if (!this.orderNavigationService.checkIsCompleteStep(this.activeStep)) {
